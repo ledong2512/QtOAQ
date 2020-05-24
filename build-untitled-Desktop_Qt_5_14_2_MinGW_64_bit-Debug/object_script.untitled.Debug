@@ -1,0 +1,13 @@
+debug/BigCell.o
+debug/Cell.o
+debug/Game.o
+debug/LeftButton.o
+debug/Score.o
+debug/Stone.o
+debug/main.o
+debug/mainwindow.o
+debug/qrc_src.o
+debug/moc_Cell.o
+debug/moc_Game.o
+debug/moc_LeftButton.o
+debug/moc_mainwindow.o

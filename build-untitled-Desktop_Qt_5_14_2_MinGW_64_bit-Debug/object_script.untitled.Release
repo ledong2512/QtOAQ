@@ -1,0 +1,13 @@
+release/BigCell.o
+release/Cell.o
+release/Game.o
+release/LeftButton.o
+release/Score.o
+release/Stone.o
+release/main.o
+release/mainwindow.o
+release/qrc_src.o
+release/moc_Cell.o
+release/moc_Game.o
+release/moc_LeftButton.o
+release/moc_mainwindow.o

@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/test">
+        <file>untitled.pro.user</file>
+        <file>a.jpg</file>
+        <file>left.png</file>
+        <file>tom.png</file>
+        <file>right.png</file>
+        <file>1.png</file>
+        <file>0.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/">
+        <file>left.png</file>
+    </qresource>
+</RCC>
