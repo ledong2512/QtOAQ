@@ -7,6 +7,10 @@
         <file>right.png</file>
         <file>1.png</file>
         <file>0.png</file>
+        <file>3.png</file>
+        <file>oanquan1.png</file>
+        <file>ok.jpg</file>
+        <file>test1.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
     <qresource prefix="/">

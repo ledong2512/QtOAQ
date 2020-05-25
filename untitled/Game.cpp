@@ -91,7 +91,7 @@ void Game::move(int cell, int direc)
              cells[cell]->score.increase();
              cell+=direc;
              cell%=12;if(cell<0) cell+=12;
-             int millisecondsWait=400;
+             int millisecondsWait=500;
              QEventLoop loop;
                  QTimer t;
                  t.connect(&t, &QTimer::timeout, &loop, &QEventLoop::quit);
