@@ -23,7 +23,12 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+
+
+void MainWindow::on_loginBtn_clicked()
 {
-    setCentralWidget(game);
+    game->setParent(ui->page_2);
+    ui->stackedWidget->setCurrentWidget(ui->page_2);
 }
+
+

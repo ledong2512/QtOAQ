@@ -16,6 +16,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,14 +25,18 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
     QFrame *frame;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
-    QPushButton *pushButton;
-    QLabel *label;
-    QLabel *label_2;
-    QPushButton *signupBtn;
-    QLabel *label_3;
+    QLineEdit *lineEdit_5;
+    QLineEdit *lineEdit_6;
+    QPushButton *loginBtn;
+    QLabel *label_7;
+    QLabel *label_8;
+    QPushButton *signupBtn_3;
+    QLabel *label_9;
+    QWidget *page_3;
+    QWidget *page_2;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -43,9 +48,14 @@ public:
         MainWindow->setFocusPolicy(Qt::StrongFocus);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        frame = new QFrame(centralwidget);
+        stackedWidget = new QStackedWidget(centralwidget);
+        stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
+        stackedWidget->setGeometry(QRect(0, 0, 801, 481));
+        page = new QWidget();
+        page->setObjectName(QString::fromUtf8("page"));
+        frame = new QFrame(page);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(0, -80, 800, 561));
+        frame->setGeometry(QRect(0, -10, 800, 561));
         frame->setFocusPolicy(Qt::NoFocus);
         frame->setContextMenuPolicy(Qt::DefaultContextMenu);
         frame->setStyleSheet(QString::fromUtf8("#frame{\n"
@@ -54,42 +64,49 @@ public:
 "}"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
-        lineEdit = new QLineEdit(frame);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(150, 220, 231, 31));
-        lineEdit_2 = new QLineEdit(frame);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(150, 280, 231, 31));
-        lineEdit_2->setEchoMode(QLineEdit::Password);
-        pushButton = new QPushButton(frame);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(410, 210, 91, 101));
-        label = new QLabel(frame);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(80, 220, 47, 31));
-        label->setStyleSheet(QString::fromUtf8("QLabel{\n"
+        lineEdit_5 = new QLineEdit(frame);
+        lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
+        lineEdit_5->setGeometry(QRect(150, 220, 231, 31));
+        lineEdit_6 = new QLineEdit(frame);
+        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
+        lineEdit_6->setGeometry(QRect(150, 280, 231, 31));
+        lineEdit_6->setEchoMode(QLineEdit::Password);
+        loginBtn = new QPushButton(frame);
+        loginBtn->setObjectName(QString::fromUtf8("loginBtn"));
+        loginBtn->setGeometry(QRect(410, 210, 91, 101));
+        label_7 = new QLabel(frame);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(80, 220, 47, 31));
+        label_7->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "\n"
 "color: rgb(56, 170, 127);\n"
 "\n"
 "}"));
-        label_2 = new QLabel(frame);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(80, 280, 61, 31));
-        label_2->setStyleSheet(QString::fromUtf8("QLabel{\n"
+        label_8 = new QLabel(frame);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(80, 280, 61, 31));
+        label_8->setStyleSheet(QString::fromUtf8("QLabel{\n"
 "\n"
 "color: rgb(0, 170, 127);\n"
 "\n"
 "}"));
-        signupBtn = new QPushButton(frame);
-        signupBtn->setObjectName(QString::fromUtf8("signupBtn"));
-        signupBtn->setEnabled(true);
-        signupBtn->setGeometry(QRect(150, 340, 75, 23));
-        label_3 = new QLabel(frame);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(126, 112, 531, 81));
-        label_3->setStyleSheet(QString::fromUtf8("#label_3{\n"
+        signupBtn_3 = new QPushButton(frame);
+        signupBtn_3->setObjectName(QString::fromUtf8("signupBtn_3"));
+        signupBtn_3->setEnabled(true);
+        signupBtn_3->setGeometry(QRect(150, 340, 75, 23));
+        label_9 = new QLabel(frame);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setGeometry(QRect(126, 112, 531, 81));
+        label_9->setStyleSheet(QString::fromUtf8("#label_3{\n"
 "image:url(:/test/3.png)\n"
 "}"));
+        stackedWidget->addWidget(page);
+        page_3 = new QWidget();
+        page_3->setObjectName(QString::fromUtf8("page_3"));
+        stackedWidget->addWidget(page_3);
+        page_2 = new QWidget();
+        page_2->setObjectName(QString::fromUtf8("page_2"));
+        stackedWidget->addWidget(page_2);
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -100,13 +117,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        lineEdit->setPlaceholderText(QCoreApplication::translate("MainWindow", "Username", nullptr));
-        lineEdit_2->setPlaceholderText(QCoreApplication::translate("MainWindow", "Password", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "T\303\240i kho\341\272\243n", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "M\341\272\255t kh\341\272\251u", nullptr));
-        signupBtn->setText(QCoreApplication::translate("MainWindow", "\304\220\304\203ng k\303\255", nullptr));
-        label_3->setText(QString());
+        lineEdit_5->setPlaceholderText(QCoreApplication::translate("MainWindow", "Username", nullptr));
+        lineEdit_6->setPlaceholderText(QCoreApplication::translate("MainWindow", "Password", nullptr));
+        loginBtn->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "T\303\240i kho\341\272\243n", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "M\341\272\255t kh\341\272\251u", nullptr));
+        signupBtn_3->setText(QCoreApplication::translate("MainWindow", "\304\220\304\203ng k\303\255", nullptr));
+        label_9->setText(QString());
     } // retranslateUi
 
 };

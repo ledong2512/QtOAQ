@@ -9,7 +9,7 @@
 Game::Game(QWidget *parent)
 {
 
- scene=new QGraphicsScene();
+ scene=new QGraphicsScene(parent);
  setScene(scene);
  cells[0]=new BigCell();
  cells[6]=new BigCell();
