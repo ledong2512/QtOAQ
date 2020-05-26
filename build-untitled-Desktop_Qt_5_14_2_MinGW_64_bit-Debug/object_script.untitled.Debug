@@ -2,6 +2,7 @@ debug/BigCell.o
 debug/Cell.o
 debug/Game.o
 debug/LeftButton.o
+debug/Player.o
 debug/Score.o
 debug/Stone.o
 debug/main.o

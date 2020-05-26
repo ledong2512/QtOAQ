@@ -8,15 +8,16 @@
 #include <QDebug>
 #include<QSplashScreen>
 #include<QTimer>
+#include<mainwindow.h>
 Game *game;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QSplashScreen *splash = new QSplashScreen;
-    splash->setPixmap(QPixmap(":/test/test1.png"));
+    splash->setPixmap(QPixmap(":/oan.jpg"));
     splash->show();
-    game=new Game();
+    MainWindow *main=new MainWindow();
     QTimer::singleShot(600,splash,SLOT(close()));
-    QTimer::singleShot(600,game,SLOT(show()));
+    QTimer::singleShot(600,main,SLOT(show()));
     return a.exec();
 }

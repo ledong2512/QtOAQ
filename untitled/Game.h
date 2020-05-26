@@ -7,6 +7,7 @@
 #include<QObject>
 #include"Player.h"
 #include"Cell.h"
+
 class Game:public QGraphicsView{
     Q_OBJECT
 public:

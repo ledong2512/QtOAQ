@@ -2,6 +2,7 @@ release/BigCell.o
 release/Cell.o
 release/Game.o
 release/LeftButton.o
+release/Player.o
 release/Score.o
 release/Stone.o
 release/main.o

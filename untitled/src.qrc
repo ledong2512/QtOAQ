@@ -3,7 +3,6 @@
         <file>untitled.pro.user</file>
         <file>a.jpg</file>
         <file>left.png</file>
-        <file>tom.png</file>
         <file>right.png</file>
         <file>1.png</file>
         <file>0.png</file>
@@ -11,6 +10,7 @@
         <file>oanquan1.png</file>
         <file>ok.jpg</file>
         <file>test1.png</file>
+        <file>main.jpg</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
     <qresource prefix="/">
