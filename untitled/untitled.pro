@@ -21,6 +21,7 @@ SOURCES += \
     Game.cpp \
     LeftButton.cpp \
     Player.cpp \
+    PlayerListItem.cpp \
     Score.cpp \
     Stone.cpp \
     main.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     Game.h \
     LeftButton.h \
     Player.h \
+    PlayerListItem.h \
     Score.h \
     Stone.h \
     mainwindow.h

@@ -32,6 +32,9 @@
       <height>481</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="frame">
       <property name="geometry">
@@ -178,7 +181,49 @@ image:url(:/test/3.png)
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_3"/>
+    <widget class="QWidget" name="page_3">
+     <widget class="QListWidget" name="listWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>30</y>
+        <width>571</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#listaWidget{
+background:#33CC33;
+}</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nameSortBtn">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>411</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Tên</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rankSortBtn">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>0</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Điểm xếp hạng</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>
   </widget>

@@ -11,6 +11,7 @@
         <file>ok.jpg</file>
         <file>test1.png</file>
         <file>main.jpg</file>
+        <file>sword.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
     <qresource prefix="/">

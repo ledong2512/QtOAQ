@@ -3,6 +3,7 @@ release/Cell.o
 release/Game.o
 release/LeftButton.o
 release/Player.o
+release/PlayerListItem.o
 release/Score.o
 release/Stone.o
 release/main.o
@@ -11,4 +12,5 @@ release/qrc_src.o
 release/moc_Cell.o
 release/moc_Game.o
 release/moc_LeftButton.o
+release/moc_PlayerListItem.o
 release/moc_mainwindow.o

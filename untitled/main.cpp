@@ -10,14 +10,15 @@
 #include<QTimer>
 #include<mainwindow.h>
 Game *game;
+MainWindow *mainT;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QSplashScreen *splash = new QSplashScreen;
     splash->setPixmap(QPixmap(":/oan.jpg"));
     splash->show();
-    MainWindow *main=new MainWindow();
+    mainT=new MainWindow();
     QTimer::singleShot(600,splash,SLOT(close()));
-    QTimer::singleShot(600,main,SLOT(show()));
+    QTimer::singleShot(600,mainT,SLOT(show()));
     return a.exec();
 }

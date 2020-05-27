@@ -14,6 +14,7 @@
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
@@ -36,6 +37,9 @@ public:
     QPushButton *signupBtn_3;
     QLabel *label_9;
     QWidget *page_3;
+    QListWidget *listWidget;
+    QPushButton *nameSortBtn;
+    QPushButton *rankSortBtn;
     QWidget *page_2;
 
     void setupUi(QMainWindow *MainWindow)
@@ -103,6 +107,18 @@ public:
         stackedWidget->addWidget(page);
         page_3 = new QWidget();
         page_3->setObjectName(QString::fromUtf8("page_3"));
+        listWidget = new QListWidget(page_3);
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+        listWidget->setGeometry(QRect(0, 30, 571, 361));
+        listWidget->setStyleSheet(QString::fromUtf8("#listaWidget{\n"
+"background:#33CC33;\n"
+"}"));
+        nameSortBtn = new QPushButton(page_3);
+        nameSortBtn->setObjectName(QString::fromUtf8("nameSortBtn"));
+        nameSortBtn->setGeometry(QRect(0, 0, 411, 31));
+        rankSortBtn = new QPushButton(page_3);
+        rankSortBtn->setObjectName(QString::fromUtf8("rankSortBtn"));
+        rankSortBtn->setGeometry(QRect(410, 0, 161, 31));
         stackedWidget->addWidget(page_3);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
@@ -110,6 +126,9 @@ public:
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
+
+        stackedWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -124,6 +143,8 @@ public:
         label_8->setText(QCoreApplication::translate("MainWindow", "M\341\272\255t kh\341\272\251u", nullptr));
         signupBtn_3->setText(QCoreApplication::translate("MainWindow", "\304\220\304\203ng k\303\255", nullptr));
         label_9->setText(QString());
+        nameSortBtn->setText(QCoreApplication::translate("MainWindow", "T\303\252n", nullptr));
+        rankSortBtn->setText(QCoreApplication::translate("MainWindow", "\304\220i\341\273\203m x\341\272\277p h\341\272\241ng", nullptr));
     } // retranslateUi
 
 };
