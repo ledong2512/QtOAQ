@@ -9,6 +9,7 @@
 Game::Game(QWidget *parent)
 {
 
+
  scene=new QGraphicsScene(parent);
  setScene(scene);
  cells[0]=new BigCell();
@@ -37,12 +38,16 @@ Game::Game(QWidget *parent)
  this->setFixedSize(800,480);
  scene->setSceneRect(0,0,800,480);
  for(int i=7;i<=11;i++){
+     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
+     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::move);
     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::move);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::changeTurn);
     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::changeTurn);
  }
  for(int i=1;i<=5;i++){
+    connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
+    connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::move);
     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::move);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::changeTurn);
@@ -51,6 +56,28 @@ Game::Game(QWidget *parent)
  for(int i=7;i<=11;i++){
      ((Cell*)cells[i])->lockModify();
  }
+ timerText.setPos(130,23);
+ timerText.setDefaultTextColor(Qt::black);
+ timerText.setFont(QFont("times",12));
+ timerText.setPlainText(QString::number(timer));
+ scene->addItem(&timerText);
+ QTimer *t=new QTimer();
+ connect(t,SIGNAL(timeout()),this,SLOT(timeCout()));
+ t->start(1000);
+}
+
+void Game::keyPressEvent(QKeyEvent *event)
+{
+    if(event->key()==Qt::Key_Space){
+        millisecondsWait=20;
+    }
+}
+
+void Game::keyReleaseEvent(QKeyEvent *event)
+{
+    if(event->key()==Qt::Key_Space){
+        millisecondsWait=500;
+    }
 }
 
 void Game::removeButton()
@@ -79,6 +106,7 @@ void Game::move(int cell, int direc)
 {
     cells[0]->setFocus();
     removeButton();
+
     cell%=12;
         int n= cells[cell]->score.getScore();
         if(n==0) {
@@ -91,7 +119,7 @@ void Game::move(int cell, int direc)
              cells[cell]->score.increase();
              cell+=direc;
              cell%=12;if(cell<0) cell+=12;
-             int millisecondsWait=500;
+
              QEventLoop loop;
                  QTimer t;
                  t.connect(&t, &QTimer::timeout, &loop, &QEventLoop::quit);
@@ -109,4 +137,9 @@ void Game::move(int cell, int direc)
         }
         if(cell!=0&&cell!=6) move(cell,direc);
         showButtonAgain();
+}
+
+void Game::resetTime(int cell, int direc)
+{
+            timer=120;
 }

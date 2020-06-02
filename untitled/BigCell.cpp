@@ -13,7 +13,7 @@ void BigCell::updateCell()
     qDebug()<<score.getScore();
     score.setScore(score.getScore());
     score.setPos(rect().x(),rect().y());
-    score.stone.setPos(rect().x()+50,rect().y()+50);
+    score.stone.setPos(rect().x()+25,rect().y()+25);
     scene()->addItem(&score.stone);
     scene()->addItem(&score);
 }

@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    game=new Game();
+
     setFixedSize(QSize(800,480));
 
 
@@ -41,7 +41,7 @@ void MainWindow::addPlayerToBoard(QString playerName, int rank)
 }
 
 void MainWindow::accessGameSlot()
-{
+{   game=new Game();
     game->setParent(ui->page_2);
     ui->stackedWidget->setCurrentWidget(ui->page_2);
 }
@@ -52,7 +52,7 @@ void MainWindow::accessGameSlot()
 void MainWindow::on_loginBtn_clicked()
 {
   ui->stackedWidget->setCurrentWidget(ui->page_3);
-    for(int i=0;i<100;i++) addPlayerToBoard(QString("to"),i);
+    for(int i=0;i<100;i++) addPlayerToBoard(QString("test_user_")+QString::number(i),i);
 }
 
 

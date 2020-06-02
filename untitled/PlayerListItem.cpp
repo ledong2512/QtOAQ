@@ -15,7 +15,7 @@ PlayerListItem::PlayerListItem(QString playerNameInput,int x)
             "max-width: 571px;"
             );
     playerName->setStyleSheet("QLabel { min-width: 375px;}");
-    rank->setStyleSheet("QLabel { min-width: 90;}");
+    rank->setStyleSheet("QLabel { min-width: 105;}");
     QGridLayout* layout = new QGridLayout();
     layout->addWidget(playerName, 1, 1);
     layout->addWidget(rank, 1, 2);

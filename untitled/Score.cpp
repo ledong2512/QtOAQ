@@ -14,8 +14,9 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
 void Score::increase(){
     score++;
     setPlainText(QString::number(score)); // Score: 1
+    if(score<=13) stone.setPixmap(QPixmap(":/test/"+(QString::number(score).append(".png"))));
+    else  stone.setPixmap(QPixmap(":/test/"+(QString::number(13).append(".png"))));
 
-   stone.setPixmap(QPixmap(":/test/"+(QString::number(score%2)).append(".png")));
 }
 
 int Score::getScore(){
@@ -27,5 +28,6 @@ void Score::setScore(int x)
 {
     score=x;
     setPlainText(QString::number(score)); // Score: 1
-    stone.setPixmap(QPixmap(":/test/"+(QString::number(score%2)).append(".png")));
+    if(score<=13) stone.setPixmap(QPixmap(":/test/"+(QString::number(score).append(".png"))));
+    else  stone.setPixmap(QPixmap(":/test/"+(QString::number(13).append(".png"))));
 }
