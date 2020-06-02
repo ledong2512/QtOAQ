@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include<QString>
 #include"Game.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +16,7 @@ public:
     Game *game;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void resetPlayerStatus(int x);
+    void addPlayerToBoard(QString playerName, int rank);
 
 
 public slots:

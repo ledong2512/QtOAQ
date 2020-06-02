@@ -40,6 +40,7 @@ public:
     QListWidget *listWidget;
     QPushButton *nameSortBtn;
     QPushButton *rankSortBtn;
+    QLabel *avatar;
     QWidget *page_2;
 
     void setupUi(QMainWindow *MainWindow)
@@ -119,6 +120,12 @@ public:
         rankSortBtn = new QPushButton(page_3);
         rankSortBtn->setObjectName(QString::fromUtf8("rankSortBtn"));
         rankSortBtn->setGeometry(QRect(410, 0, 161, 31));
+        avatar = new QLabel(page_3);
+        avatar->setObjectName(QString::fromUtf8("avatar"));
+        avatar->setGeometry(QRect(570, 0, 231, 211));
+        avatar->setStyleSheet(QString::fromUtf8("#avatar{\n"
+"background-image:url(:/test/main.jpg)\n"
+"}"));
         stackedWidget->addWidget(page_3);
         page_2 = new QWidget();
         page_2->setObjectName(QString::fromUtf8("page_2"));
@@ -145,6 +152,7 @@ public:
         label_9->setText(QString());
         nameSortBtn->setText(QCoreApplication::translate("MainWindow", "T\303\252n", nullptr));
         rankSortBtn->setText(QCoreApplication::translate("MainWindow", "\304\220i\341\273\203m x\341\272\277p h\341\272\241ng", nullptr));
+        avatar->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
     } // retranslateUi
 
 };

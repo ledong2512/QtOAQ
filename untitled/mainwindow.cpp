@@ -23,14 +23,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::resetPlayerStatus(int x)
+void MainWindow::addPlayerToBoard(QString playerName, int rank)
 {
     QListWidgetItem* item = new QListWidgetItem();
    //
 
-    PlayerListItem * mssItem = new PlayerListItem(x);
+    PlayerListItem * mssItem = new PlayerListItem(playerName,rank);
 
-    item->setData(Qt::DisplayRole,x);
+    item->setData(Qt::DisplayRole,rank);
     item->setFont(QFont("time",1));
     item->setTextColor(Qt::white);
     item->setSizeHint(mssItem->sizeHint());
@@ -52,7 +52,7 @@ void MainWindow::accessGameSlot()
 void MainWindow::on_loginBtn_clicked()
 {
   ui->stackedWidget->setCurrentWidget(ui->page_3);
-    for(int i=0;i<100;i++) resetPlayerStatus(i);
+    for(int i=0;i<100;i++) addPlayerToBoard(QString("to"),i);
 }
 
 

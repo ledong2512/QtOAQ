@@ -9,7 +9,7 @@ class PlayerListItem:public QWidget{
     Q_OBJECT
 public:
     PlayerListItem();
-    PlayerListItem(int rank);
+    PlayerListItem(QString playerNameInput,int rank);
     void mousePressEvent(QMouseEvent*event);
 public slots:
     void challenge(){

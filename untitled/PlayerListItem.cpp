@@ -3,9 +3,9 @@
 #include<QMenu>
 #include<QLayout>
 extern MainWindow *mainT;
-PlayerListItem::PlayerListItem(int x)
+PlayerListItem::PlayerListItem(QString playerNameInput,int x)
 {
-    playerName = new QLabel("mess.content"+QString::number(x));
+    playerName = new QLabel(playerNameInput);
     rank = new QLabel(QString::number(x));
     setStyleSheet("background: #66CC33;"
             " padding: 10px;"

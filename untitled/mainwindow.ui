@@ -33,7 +33,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QFrame" name="frame">
@@ -221,6 +221,24 @@ background:#33CC33;
       </property>
       <property name="text">
        <string>Điểm xếp hạng</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="avatar">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>0</y>
+        <width>231</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#avatar{
+background-image:url(:/test/main.jpg)
+}</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
       </property>
      </widget>
     </widget>

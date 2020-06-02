@@ -14,7 +14,10 @@
         <file>sword.png</file>
     </qresource>
     <qresource prefix="/new/prefix1"/>
-    <qresource prefix="/">
-        <file>left.png</file>
-    </qresource>
+    <qresource prefix="/ok"/>
+    <qresource prefix="/ava"/>
+    <qresource prefix="/ava" lang="none"/>
+    <qresource prefix="/"/>
+    <qresource prefix="/ava" lang="C++"/>
+    <qresource prefix="/\ok"/>
 </RCC>
