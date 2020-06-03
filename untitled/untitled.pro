@@ -25,7 +25,8 @@ SOURCES += \
     Score.cpp \
     Stone.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    serverconnector.cpp
 
 HEADERS += \
     BigCell.h \
@@ -36,10 +37,12 @@ HEADERS += \
     PlayerListItem.h \
     Score.h \
     Stone.h \
-    mainwindow.h
+    mainwindow.h \
+    serverconnector.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    serverconnector.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

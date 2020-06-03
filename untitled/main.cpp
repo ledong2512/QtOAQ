@@ -9,6 +9,9 @@
 #include<QSplashScreen>
 #include<QTimer>
 #include<mainwindow.h>
+#include"serverconnector.h"
+
+
 Game *game;
 MainWindow *mainT;
 int main(int argc, char *argv[])
@@ -20,8 +23,12 @@ int main(int argc, char *argv[])
     splash->setPixmap(QPixmap(":/test/oanqan.png"));
     splash->show();
     mainT=new MainWindow();
+    ServerConnector *con=new ServerConnector();
+    con->show();
     mainT->setWindowTitle("Oanquan");
     QTimer::singleShot(600,splash,SLOT(close()));
     QTimer::singleShot(600,mainT,SLOT(show()));
+
+
     return a.exec();
 }
