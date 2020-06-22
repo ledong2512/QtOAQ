@@ -17,12 +17,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void addPlayerToBoard(QString playerName, int rank);
-
-
+	
+signals:
+	void loginToAccout(int messageCode, char *data, int dataLength);
+	void logoutSignal(int messageCode, char *data, int dataLength); //signal to main thread
 public slots:
     void accessGameSlot();
+	void loginSuccess(char* nickName, int rank);// nickName: player nickname, rank:player rank;
+	void logout();// logout slots
 private slots:
-
+	
     void on_loginBtn_clicked();
 
     void on_nameSortBtn_clicked();

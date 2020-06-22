@@ -14,8 +14,10 @@ class challenge : public QDialog
 public:
     explicit challenge(QWidget *parent = nullptr);
     ~challenge();
-
+public slots:
+    void coutDown();
 private:
+    int time=5;
     Ui::challenge *ui;
 };
 

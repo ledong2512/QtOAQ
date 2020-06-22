@@ -1,0 +1,7 @@
+﻿  Uic'ing mainwindow.ui...
+  mainwindow.cpp
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter
+mainwindow.cpp(66): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  untitled.vcxproj -> C:\Users\123\Desktop\QtOAQ\untitled\debug\untitled.exe
+  untitled.vcxproj -> debug\untitled.pdb (Full PDB)

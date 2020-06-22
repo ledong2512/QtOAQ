@@ -8,9 +8,11 @@ debug/Score.o
 debug/Stone.o
 debug/main.o
 debug/mainwindow.o
+debug/serverconnector.o
 debug/qrc_src.o
 debug/moc_Cell.o
 debug/moc_Game.o
 debug/moc_LeftButton.o
 debug/moc_PlayerListItem.o
 debug/moc_mainwindow.o
+debug/moc_serverconnector.o

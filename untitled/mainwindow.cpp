@@ -5,6 +5,8 @@
 #include<QLayout>
 #include<QDebug>
 #include"PlayerListItem.h"
+#include "MessagesCode.h"
+#define MAX_LENGTH 2048
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -23,7 +25,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::addPlayerToBoard(QString playerName, int rank)
+void MainWindow::addPlayerToBoard(QString playerName, int rank)// playerName: name of player. rank: player rank
 {
     QListWidgetItem* item = new QListWidgetItem();
    //
@@ -46,17 +48,30 @@ void MainWindow::accessGameSlot()
     ui->stackedWidget->setCurrentWidget(ui->page_2);
 }
 
-
+void MainWindow::logout()
+{
+	emit logoutSignal(LOGOUT_MESSAGE,NULL,0);
+	//ui->stackedWidget->setCurrentWidget(ui->page);
+}
 
 
 void MainWindow::on_loginBtn_clicked()
 {
-  ui->stackedWidget->setCurrentWidget(ui->page_3);
-    for(int i=0;i<100;i++) addPlayerToBoard(QString("test_user_")+QString::number(i),i);
+  //ui->stackedWidget->setCurrentWidget(ui->page_3);
+    //for(int i=0;i<100;i++) addPlayerToBoard(QString("test_user_")+QString::number(i),i);
+	QString id = ui->lineEdit_5->text();
+	QString pass = ui->lineEdit_6->text();
+	char loginData[MAX_LENGTH];
+	strcpy_s(loginData, (id + " " + pass).toStdString().c_str());
+	emit loginToAccout(1, loginData, strlen(loginData));
+
 }
 
-
-
+void MainWindow::loginSuccess(char* nickName, int rank) {// call when successful login,set the rank and nickName
+	ui->stackedWidget->setCurrentWidget(ui->page_3);
+	ui->label_name->setText(QString(nickName));
+	ui->label_rank->setText(QString::number(rank));
+}
 void MainWindow::on_nameSortBtn_clicked()
 {
 

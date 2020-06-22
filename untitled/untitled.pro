@@ -24,6 +24,7 @@ SOURCES += \
     PlayerListItem.cpp \
     Score.cpp \
     Stone.cpp \
+    challenge.cpp \
     main.cpp \
     mainwindow.cpp \
     serverconnector.cpp
@@ -37,10 +38,12 @@ HEADERS += \
     PlayerListItem.h \
     Score.h \
     Stone.h \
+    challenge.h \
     mainwindow.h \
     serverconnector.h
 
 FORMS += \
+    challenge.ui \
     mainwindow.ui \
     serverconnector.ui
 

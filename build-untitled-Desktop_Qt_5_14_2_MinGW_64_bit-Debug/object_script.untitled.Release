@@ -8,9 +8,11 @@ release/Score.o
 release/Stone.o
 release/main.o
 release/mainwindow.o
+release/serverconnector.o
 release/qrc_src.o
 release/moc_Cell.o
 release/moc_Game.o
 release/moc_LeftButton.o
 release/moc_PlayerListItem.o
 release/moc_mainwindow.o
+release/moc_serverconnector.o

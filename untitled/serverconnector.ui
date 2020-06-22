@@ -109,8 +109,41 @@ border:none;
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="labelError">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>171</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>conBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>ServerConnector</receiver>
+   <slot>getInfomation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>257</x>
+     <y>151</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>172</x>
+     <y>91</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>getInfomation()</slot>
+ </slots>
 </ui>
