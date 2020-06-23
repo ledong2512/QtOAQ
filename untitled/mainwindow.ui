@@ -363,14 +363,14 @@ background:rgb(24, 190, 49)
  <resources/>
  <connections>
   <connection>
-   <sender>loginBtn</sender>
+   <sender>logoutButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>logout()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>545</x>
-     <y>290</y>
+     <x>745</x>
+     <y>455</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>

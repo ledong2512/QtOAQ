@@ -115,8 +115,10 @@ int main(int argc, char *argv[])
 	//Step 4: Request to connect server
 	//connect signal button clicked to TRY function
 	QObject::connect(con, &ServerConnector::buttonIsClicked, TRY);
-	QObject::connect(mainT, &MainWindow::loginToAccout, crafMessageAndSend );
+	QObject::connect(mainT, &MainWindow::MainSignal, crafMessageAndSend );
 	QObject::connect(&connector, &ThreadConnector::loginSuccess,mainT ,&MainWindow::loginSuccess);
+	QObject::connect(&connector, &ThreadConnector::logoutSuccess, mainT, &MainWindow::logoutSuccess);
+	QObject::connect(&connector, &ThreadConnector::listPlayer, mainT, &MainWindow::updateBoard);
 	QObject::connect(&a, &QApplication::aboutToQuit, &connector, [=] {connector.terminate();connector.wait(5000);});//terminat the recv theard
 
 

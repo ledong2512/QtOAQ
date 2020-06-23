@@ -210,7 +210,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
-        QObject::connect(loginBtn, SIGNAL(clicked()), MainWindow, SLOT(logout()));
+        QObject::connect(logoutButton, SIGNAL(clicked()), MainWindow, SLOT(logout()));
 
         stackedWidget->setCurrentIndex(0);
 

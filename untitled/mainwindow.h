@@ -19,12 +19,13 @@ public:
     void addPlayerToBoard(QString playerName, int rank);
 	
 signals:
-	void loginToAccout(int messageCode, char *data, int dataLength);
-	void logoutSignal(int messageCode, char *data, int dataLength); //signal to main thread
+	void MainSignal(int messageCode, char *data, int dataLength); //signal to main thread
 public slots:
     void accessGameSlot();
-	void loginSuccess(char* nickName, int rank);// nickName: player nickname, rank:player rank;
-	void logout();// logout slots
+	void loginSuccess(QString nickName, int rank);// nickName: player nickname, rank:player rank;
+	void logout();// logout slots // logout button clicked
+	void logoutSuccess();
+	void updateBoard(QString listPlayer);// update the list player board
 private slots:
 	
     void on_loginBtn_clicked();

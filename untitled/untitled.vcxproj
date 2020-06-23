@@ -211,6 +211,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="serverconnector.cpp" />
+    <ClCompile Include="ThreadConnector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BigCell.h" />
