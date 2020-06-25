@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>480</height>
+    <height>482</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -165,6 +165,26 @@ image:url(:/test/oanqan.png)
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="loginError">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>409</y>
+         <width>481</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">
@@ -191,7 +211,7 @@ QPushButton:pressed {
         <x>0</x>
         <y>30</y>
         <width>571</width>
-        <height>301</height>
+        <height>281</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -355,6 +375,88 @@ background:rgb(24, 190, 49)
        <string>Đăng xuất</string>
       </property>
      </widget>
+     <widget class="QListWidget" name="notiList">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>320</y>
+        <width>571</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#listWidget{
+background:white
+}
+QScrollBar:vertical {
+border: 2px solid grey;
+}
+QScrollBar:vertical {
+    border: 2px solid grey;
+    background: rgb(158, 255, 106)
+
+
+}
+QScrollBar::handle:vertical {
+    background: white;
+    min-height: 20px;
+}
+QScrollBar::add-line:vertical {
+    border: 2px solid grey;
+    background: rgb(158, 255, 106);
+    height: 20px;
+}
+
+QScrollBar::sub-line:vertical {
+    border: 2px solid grey;
+    background: rgb(158, 255, 106);
+    height: 20px;
+
+}</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="chatLine">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>521</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Nhập nội dung</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sendButton">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>450</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#sendButton{
+ border:1px solid green;
+border-radius: 0px;
+background:rgb(158, 255, 106)
+}
+#sendButton:hover {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+#sendButton:pressed {
+  background-color:rgb(158, 255, 106) ;
+  
+}</string>
+      </property>
+      <property name="text">
+       <string>Gửi</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>
@@ -378,8 +480,25 @@ background:rgb(24, 190, 49)
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>sendButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>sendSlots()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>545</x>
+     <y>465</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>240</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>logout()</slot>
+  <slot>sendSlots()</slot>
  </slots>
 </ui>

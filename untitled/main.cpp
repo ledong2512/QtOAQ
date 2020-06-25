@@ -10,7 +10,6 @@
 #include<QTimer>
 #include<mainwindow.h>
 #include"serverconnector.h"
-#include "challenge.h"
 #include"ClientRequest.h"
 #include"ThreadConnector.h"
 #pragma comment(lib, "Ws2_32.lib")
@@ -117,10 +116,13 @@ int main(int argc, char *argv[])
 	QObject::connect(con, &ServerConnector::buttonIsClicked, TRY);
 	QObject::connect(mainT, &MainWindow::MainSignal, crafMessageAndSend );
 	QObject::connect(&connector, &ThreadConnector::loginSuccess,mainT ,&MainWindow::loginSuccess);
+	QObject::connect(&connector, &ThreadConnector::loginError, mainT, &MainWindow::loginErrorSlots);
 	QObject::connect(&connector, &ThreadConnector::logoutSuccess, mainT, &MainWindow::logoutSuccess);
 	QObject::connect(&connector, &ThreadConnector::listPlayer, mainT, &MainWindow::updateBoard);
+	QObject::connect(&connector, &ThreadConnector::newChallengerSig, mainT, &MainWindow::newChallenger);
+	QObject::connect(&connector, &ThreadConnector::newChat, mainT, &MainWindow::addNoti);
 	QObject::connect(&a, &QApplication::aboutToQuit, &connector, [=] {connector.terminate();connector.wait(5000);});//terminat the recv theard
-
+	
 
 
     return a.exec();

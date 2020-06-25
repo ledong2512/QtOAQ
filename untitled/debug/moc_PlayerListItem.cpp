@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_PlayerListItem_t {
-    QByteArrayData data[4];
-    char stringdata0[35];
+    QByteArrayData data[5];
+    char stringdata0[46];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,10 +35,12 @@ static const qt_meta_stringdata_PlayerListItem_t qt_meta_stringdata_PlayerListIt
 QT_MOC_LITERAL(0, 0, 14), // "PlayerListItem"
 QT_MOC_LITERAL(1, 15, 8), // "goToGame"
 QT_MOC_LITERAL(2, 24, 0), // ""
-QT_MOC_LITERAL(3, 25, 9) // "challenge"
+QT_MOC_LITERAL(3, 25, 10), // "playerName"
+QT_MOC_LITERAL(4, 36, 9) // "challenge"
 
     },
-    "PlayerListItem\0goToGame\0\0challenge"
+    "PlayerListItem\0goToGame\0\0playerName\0"
+    "challenge"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,13 +58,13 @@ static const uint qt_meta_data_PlayerListItem[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x06 /* Public */,
+       1,    1,   24,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   25,    2, 0x0a /* Public */,
+       4,    0,   27,    2, 0x0a /* Public */,
 
  // signals: parameters
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    3,
 
  // slots: parameters
     QMetaType::Void,
@@ -76,21 +78,20 @@ void PlayerListItem::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         auto *_t = static_cast<PlayerListItem *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->goToGame(); break;
+        case 0: _t->goToGame((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->challenge(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (PlayerListItem::*)();
+            using _t = void (PlayerListItem::*)(QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&PlayerListItem::goToGame)) {
                 *result = 0;
                 return;
             }
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject PlayerListItem::staticMetaObject = { {
@@ -134,9 +135,10 @@ int PlayerListItem::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void PlayerListItem::goToGame()
+void PlayerListItem::goToGame(QString _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

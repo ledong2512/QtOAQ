@@ -26,5 +26,8 @@ signals:
 	void connectHandldeData(int messageCode, char *data, int dataLength);//connect to the main thread
 	void logoutSuccess();
 	void listPlayer(QString list); // list is the list of player include nickname and rank
+	void loginError(QString message); // send login error message
+	void newChallengerSig(QString rival); //new Challenger
+	void newChat(QString mess); // new chat
 };
 #endif

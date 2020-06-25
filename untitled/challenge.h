@@ -12,7 +12,7 @@ class challenge : public QDialog
     Q_OBJECT
 
 public:
-    explicit challenge(QWidget *parent = nullptr);
+    explicit challenge(  QString rival, QWidget *parent = nullptr);
     ~challenge();
 public slots:
     void coutDown();

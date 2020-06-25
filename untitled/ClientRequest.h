@@ -34,6 +34,7 @@ inline int headerHandle(char *message) {// handle the response message
 inline void crafMessageAndSend(int messageCode, char *data, int dataLength) {
 	// messageCode is the code of message, data is message data, dataLength is the length of data
 	char message[MAX_LENGTH];
+	/*
 	switch (messageCode) {
 		case(LOGIN_MESSAGE): {
 			message[0] = LOGIN_MESSAGE;
@@ -52,7 +53,16 @@ inline void crafMessageAndSend(int messageCode, char *data, int dataLength) {
 			dataLength = 0;
 			break;
 		}
-	}
+		case(CONNECT_TO_PLAY): {
+			makeItCombine(messageCode, data, dataLength, message);
+			break;
+		}
+		case(CHAT): {
+			makeItCombine(messageCode, data, dataLength, message);
+			break;
+		}
+	}*/
+	makeItCombine(messageCode, data, dataLength, message);
 	send(client, message, dataLength + 4, 0);
 }
 inline void handleResponse(int messageCode, char *data, int dataLength) { // the Response Message form service

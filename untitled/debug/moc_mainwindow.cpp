@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[18];
-    char stringdata0[209];
+    QByteArrayData data[26];
+    char stringdata0[287];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,25 +39,35 @@ QT_MOC_LITERAL(3, 23, 11), // "messageCode"
 QT_MOC_LITERAL(4, 35, 5), // "char*"
 QT_MOC_LITERAL(5, 41, 4), // "data"
 QT_MOC_LITERAL(6, 46, 10), // "dataLength"
-QT_MOC_LITERAL(7, 57, 14), // "accessGameSlot"
-QT_MOC_LITERAL(8, 72, 12), // "loginSuccess"
-QT_MOC_LITERAL(9, 85, 8), // "nickName"
-QT_MOC_LITERAL(10, 94, 4), // "rank"
-QT_MOC_LITERAL(11, 99, 6), // "logout"
-QT_MOC_LITERAL(12, 106, 13), // "logoutSuccess"
-QT_MOC_LITERAL(13, 120, 11), // "updateBoard"
-QT_MOC_LITERAL(14, 132, 10), // "listPlayer"
-QT_MOC_LITERAL(15, 143, 19), // "on_loginBtn_clicked"
-QT_MOC_LITERAL(16, 163, 22), // "on_nameSortBtn_clicked"
-QT_MOC_LITERAL(17, 186, 22) // "on_rankSortBtn_clicked"
+QT_MOC_LITERAL(7, 57, 7), // "addNoti"
+QT_MOC_LITERAL(8, 65, 4), // "noti"
+QT_MOC_LITERAL(9, 70, 9), // "sendSlots"
+QT_MOC_LITERAL(10, 80, 14), // "accessGameSlot"
+QT_MOC_LITERAL(11, 95, 10), // "playerName"
+QT_MOC_LITERAL(12, 106, 12), // "loginSuccess"
+QT_MOC_LITERAL(13, 119, 8), // "nickName"
+QT_MOC_LITERAL(14, 128, 4), // "rank"
+QT_MOC_LITERAL(15, 133, 6), // "logout"
+QT_MOC_LITERAL(16, 140, 13), // "logoutSuccess"
+QT_MOC_LITERAL(17, 154, 11), // "updateBoard"
+QT_MOC_LITERAL(18, 166, 10), // "listPlayer"
+QT_MOC_LITERAL(19, 177, 15), // "loginErrorSlots"
+QT_MOC_LITERAL(20, 193, 7), // "message"
+QT_MOC_LITERAL(21, 201, 13), // "newChallenger"
+QT_MOC_LITERAL(22, 215, 5), // "rival"
+QT_MOC_LITERAL(23, 221, 19), // "on_loginBtn_clicked"
+QT_MOC_LITERAL(24, 241, 22), // "on_nameSortBtn_clicked"
+QT_MOC_LITERAL(25, 264, 22) // "on_rankSortBtn_clicked"
 
     },
     "MainWindow\0MainSignal\0\0messageCode\0"
-    "char*\0data\0dataLength\0accessGameSlot\0"
+    "char*\0data\0dataLength\0addNoti\0noti\0"
+    "sendSlots\0accessGameSlot\0playerName\0"
     "loginSuccess\0nickName\0rank\0logout\0"
     "logoutSuccess\0updateBoard\0listPlayer\0"
-    "on_loginBtn_clicked\0on_nameSortBtn_clicked\0"
-    "on_rankSortBtn_clicked"
+    "loginErrorSlots\0message\0newChallenger\0"
+    "rival\0on_loginBtn_clicked\0"
+    "on_nameSortBtn_clicked\0on_rankSortBtn_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -67,7 +77,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -75,27 +85,35 @@ static const uint qt_meta_data_MainWindow[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   59,    2, 0x06 /* Public */,
+       1,    3,   79,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    0,   66,    2, 0x0a /* Public */,
-       8,    2,   67,    2, 0x0a /* Public */,
-      11,    0,   72,    2, 0x0a /* Public */,
-      12,    0,   73,    2, 0x0a /* Public */,
-      13,    1,   74,    2, 0x0a /* Public */,
-      15,    0,   77,    2, 0x08 /* Private */,
-      16,    0,   78,    2, 0x08 /* Private */,
-      17,    0,   79,    2, 0x08 /* Private */,
+       7,    1,   86,    2, 0x0a /* Public */,
+       9,    0,   89,    2, 0x0a /* Public */,
+      10,    1,   90,    2, 0x0a /* Public */,
+      12,    2,   93,    2, 0x0a /* Public */,
+      15,    0,   98,    2, 0x0a /* Public */,
+      16,    0,   99,    2, 0x0a /* Public */,
+      17,    1,  100,    2, 0x0a /* Public */,
+      19,    1,  103,    2, 0x0a /* Public */,
+      21,    1,  106,    2, 0x0a /* Public */,
+      23,    0,  109,    2, 0x08 /* Private */,
+      24,    0,  110,    2, 0x08 /* Private */,
+      25,    0,  111,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, 0x80000000 | 4, QMetaType::Int,    3,    5,    6,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::QString,    8,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::Int,    9,   10,
+    QMetaType::Void, QMetaType::QString,   11,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int,   13,   14,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   14,
+    QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void, QMetaType::QString,   20,
+    QMetaType::Void, QMetaType::QString,   22,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -110,14 +128,18 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->MainSignal((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< char*(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
-        case 1: _t->accessGameSlot(); break;
-        case 2: _t->loginSuccess((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 3: _t->logout(); break;
-        case 4: _t->logoutSuccess(); break;
-        case 5: _t->updateBoard((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 6: _t->on_loginBtn_clicked(); break;
-        case 7: _t->on_nameSortBtn_clicked(); break;
-        case 8: _t->on_rankSortBtn_clicked(); break;
+        case 1: _t->addNoti((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->sendSlots(); break;
+        case 3: _t->accessGameSlot((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 4: _t->loginSuccess((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 5: _t->logout(); break;
+        case 6: _t->logoutSuccess(); break;
+        case 7: _t->updateBoard((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 8: _t->loginErrorSlots((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 9: _t->newChallenger((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 10: _t->on_loginBtn_clicked(); break;
+        case 11: _t->on_nameSortBtn_clicked(); break;
+        case 12: _t->on_rankSortBtn_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -161,13 +183,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 13;
     }
     return _id;
 }

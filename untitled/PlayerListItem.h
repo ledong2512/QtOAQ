@@ -13,12 +13,11 @@ public:
     void mousePressEvent(QMouseEvent*event);
 public slots:
     void challenge(){
-        qDebug()<<rank->text();
-        emit goToGame();
+        emit goToGame(playerName->text());
     }
 
 signals:
-    void goToGame();
+    void goToGame(QString playerName);
 private:
     QLabel *playerName,*rank;
 };

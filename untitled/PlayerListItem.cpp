@@ -30,8 +30,8 @@ void PlayerListItem::mousePressEvent(QMouseEvent *event)
         QMenu* myMenu = new QMenu();
         QAction *fightAction=new QAction(QIcon(":/test/sword.png"),"Fight");
         myMenu->addAction(fightAction);
-        connect(fightAction,&QAction::triggered,this,&PlayerListItem::challenge);// send challenge message
-        connect(this,&PlayerListItem::goToGame,mainT,&MainWindow::accessGameSlot);
+        connect(fightAction,&QAction::triggered,this,&PlayerListItem::challenge,Qt::UniqueConnection);// send challenge message
+        connect(this,&PlayerListItem::goToGame,mainT,&MainWindow::accessGameSlot,Qt::UniqueConnection);
         myMenu->popup( QCursor::pos() );
         }
 }

@@ -20,7 +20,10 @@ ServerConnector::ServerConnector(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ServerConnector)
 {
+	
     ui->setupUi(this);
+	ui->textPort->setPlainText("5500");
+	ui->serverName->setPlainText("127.0.0.1");
 }
 void ServerConnector::errorMes() {
 	ui->labelError->setText(QString("Error: Cannot connect server!"));
