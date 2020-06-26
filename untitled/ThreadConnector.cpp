@@ -15,6 +15,9 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 		else if (strcmp(data, MESSAGE_NOT_YET) == 0) {
 			emit newChat(QString(u8"Vui lòng đợi 30 giây để tiếp tục gửi tin nhắn!!!!!!!"));
 		}
+		else if (strcmp(data, RIVAL_OFFLINE) == 0) {
+			emit newChat(QString(u8"Đối thủ hiện không thể tiếp nhận giao đấu, xin cập nhật lại danh sách đối thủ khả dụng!!!"));
+		}
 		break;
 	}
 	case(LOGIN_SUCCESS): {

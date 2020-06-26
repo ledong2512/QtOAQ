@@ -19,8 +19,10 @@ public:
 	QString getIP();
 	QString getPort();
 	void errorMes();
+	void ConvertHostnameToIP(char *hostname, char *ip);
 	public slots:
 	void getInfomation();
+	
 signals:
 	void buttonIsClicked();
 

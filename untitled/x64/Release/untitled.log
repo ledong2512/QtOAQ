@@ -1,0 +1,72 @@
+﻿  Reading Qt configuration (D:\Qt\5.14.2\msvc2015_64\bin\qmake.exe)
+  Generate moc_predefs.h
+  Rcc'ing src.qrc...
+  Moc'ing ThreadConnector.h...
+  Moc'ing Cell.h...
+  Moc'ing Game.h...
+  Moc'ing LeftButton.h...
+  Moc'ing PlayerListItem.h...
+  Moc'ing challenge.h...
+  Moc'ing mainwindow.h...
+  Moc'ing serverconnector.h...
+  BigCell.cpp
+  Cell.cpp
+  Game.cpp
+  LeftButton.cpp
+  Player.cpp
+  PlayerListItem.cpp
+  Score.cpp
+  Stone.cpp
+LeftButton.cpp(9): warning C4100: 'event': unreferenced formal parameter
+LeftButton.cpp(20): warning C4100: 'event': unreferenced formal parameter
+Cell.cpp(19): warning C4100: 'event': unreferenced formal parameter
+Cell.cpp(35): warning C4100: 'event': unreferenced formal parameter
+Cell.cpp(40): warning C4100: 'event': unreferenced formal parameter
+Cell.cpp(49): warning C4100: 'event': unreferenced formal parameter
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file Game.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file Game.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file PlayerListItem.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file PlayerListItem.cpp)
+  challenge.cpp
+  main.cpp
+  mainwindow.cpp
+  serverconnector.cpp
+  ThreadConnector.cpp
+Game.cpp(142): warning C4100: 'direc': unreferenced formal parameter
+Game.cpp(142): warning C4100: 'cell': unreferenced formal parameter
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file mainwindow.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file mainwindow.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file main.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file main.cpp)
+mainwindow.cpp(63): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+mainwindow.cpp(74): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+mainwindow.cpp(93): warning C4101: 'rank': unreferenced local variable
+mainwindow.cpp(126): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'dataLength': unreferenced formal parameter (compiling source file main.cpp)
+c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'data': unreferenced formal parameter (compiling source file main.cpp)
+main.cpp(40): warning C4101: 'message': unreferenced local variable
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file ThreadConnector.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file ThreadConnector.cpp)
+c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'dataLength': unreferenced formal parameter (compiling source file ThreadConnector.cpp)
+c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'data': unreferenced formal parameter (compiling source file ThreadConnector.cpp)
+ThreadConnector.cpp(62): warning C4101: 'message': unreferenced local variable
+  qrc_src.cpp
+  moc_ThreadConnector.cpp
+  moc_Cell.cpp
+  moc_Game.cpp
+  moc_LeftButton.cpp
+  moc_PlayerListItem.cpp
+  moc_challenge.cpp
+  moc_mainwindow.cpp
+c:\users\123\desktop\qtoaq\untitled\release\../Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file Release\moc_Game.cpp)
+c:\users\123\desktop\qtoaq\untitled\release\../Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file Release\moc_Game.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file Release\moc_mainwindow.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file Release\moc_mainwindow.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file Release\moc_PlayerListItem.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file Release\moc_PlayerListItem.cpp)
+  moc_serverconnector.cpp
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file Release\moc_ThreadConnector.cpp)
+c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file Release\moc_ThreadConnector.cpp)
+c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'dataLength': unreferenced formal parameter (compiling source file Release\moc_ThreadConnector.cpp)
+c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'data': unreferenced formal parameter (compiling source file Release\moc_ThreadConnector.cpp)
+  untitled.vcxproj -> C:\Users\123\Desktop\QtOAQ\untitled\release\untitled.exe

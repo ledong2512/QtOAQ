@@ -1,26 +1,3 @@
-﻿  ThreadConnector.cpp
-  main.cpp
-  mainwindow.cpp
-c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file mainwindow.cpp)
-c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file mainwindow.cpp)
-c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file main.cpp)
-c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file main.cpp)
-mainwindow.cpp(63): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(74): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(93): warning C4101: 'rank': unreferenced local variable
-mainwindow.cpp(126): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'dataLength': unreferenced formal parameter (compiling source file main.cpp)
-c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'data': unreferenced formal parameter (compiling source file main.cpp)
-main.cpp(40): warning C4101: 'message': unreferenced local variable
-c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter (compiling source file ThreadConnector.cpp)
-c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter (compiling source file ThreadConnector.cpp)
-c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'dataLength': unreferenced formal parameter (compiling source file ThreadConnector.cpp)
-c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'data': unreferenced formal parameter (compiling source file ThreadConnector.cpp)
-ThreadConnector.cpp(62): warning C4101: 'message': unreferenced local variable
-  moc_ThreadConnector.cpp
-c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'direc': unreferenced formal parameter
-c:\users\123\desktop\qtoaq\untitled\Game.h(49): warning C4100: 'cell': unreferenced formal parameter
-c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'dataLength': unreferenced formal parameter
-c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'data': unreferenced formal parameter
+﻿  serverconnector.cpp
   untitled.vcxproj -> C:\Users\123\Desktop\QtOAQ\untitled\debug\untitled.exe
   untitled.vcxproj -> debug\untitled.pdb (Full PDB)

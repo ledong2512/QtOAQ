@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
     
     mainT=new MainWindow();
     con=new ServerConnector();
-    con->show();
+    
 
 	WSADATA wsaData;
 	WORD wVersion = MAKEWORD(2, 2);
@@ -111,6 +111,7 @@ int main(int argc, char *argv[])
 	//Step 3: Specify server address
 	
 	serverAddr.sin_family = AF_INET;
+	con->show();
 	//Step 4: Request to connect server
 	//connect signal button clicked to TRY function
 	QObject::connect(con, &ServerConnector::buttonIsClicked, TRY);
