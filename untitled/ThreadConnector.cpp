@@ -15,8 +15,11 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 		else if (strcmp(data, MESSAGE_NOT_YET) == 0) {
 			emit newChat(QString(u8"Vui lòng đợi 30 giây để tiếp tục gửi tin nhắn!!!!!!!"));
 		}
+		else if (strcmp(data, DIFF_RANK) == 0) {
+			emit newChat(QString(u8"Đối thủ rank quá cao (hoặc thấp)!!!"));
+		}
 		else if (strcmp(data, RIVAL_OFFLINE) == 0) {
-			emit newChat(QString(u8"Đối thủ hiện không thể tiếp nhận giao đấu, xin cập nhật lại danh sách đối thủ khả dụng!!!"));
+			emit newChat(QString(u8"Đối thủ ngắt kết nối!!!"));
 		}
 		break;
 	}
@@ -52,10 +55,12 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 	case(CONNECT_TO_PLAY): {
 		data[dataLength] = 0;
 		emit newChallengerSig(QString(data));
+		break;
 	}
 	case(CHAT): {
 		data[dataLength] = 0;
 		emit newChat(QString(data));
+		break;
 	}
 	}
 }

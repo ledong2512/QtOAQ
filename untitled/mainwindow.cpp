@@ -80,6 +80,7 @@ void MainWindow::newChallenger(QString rival) {
 	challenge *tmp;
 	tmp=new challenge(rival);
 	tmp->show();
+	QObject::connect(tmp, &challenge::acceptFight, this, &MainWindow::acceptedFightSlot);
 }
 void MainWindow::logout()
 {
@@ -144,6 +145,12 @@ void MainWindow::on_nameSortBtn_clicked()
 	emit MainSignal(GET_LIST_PLAYER, log, 0);// send get list player
 
 }
+void MainWindow::acceptedFightSlot(QString name, int num) {
+	QString mess = name + " " + QString::number(num);
+	char buff[2048];
+	strcpy(buff, mess.toStdString().c_str());
+	emit MainSignal(AGREE_TO_PLAY, buff, strlen(buff));// send get list player
+};
 void MainWindow::keyPressEvent(QKeyEvent *e) {
 	if (Qt::Key_Enter -1 == e->key()) {
 		if (ui->stackedWidget->currentIndex() == 1) {

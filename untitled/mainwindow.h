@@ -21,6 +21,7 @@ public:
 signals:
 	void MainSignal(int messageCode, char *data, int dataLength); //signal to main thread
 public slots:
+	void acceptedFightSlot(QString name, int num);
 	void addNoti(QString noti);
 	void sendSlots();
     void accessGameSlot(QString playerName);
