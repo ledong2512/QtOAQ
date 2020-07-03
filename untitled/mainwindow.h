@@ -31,6 +31,7 @@ public slots:
 	void updateBoard(QString listPlayer);// update the list player board
 	void loginErrorSlots(QString message);
 	void newChallenger(QString rival);
+	void readyToPlay(QString rival, int number);
 private slots:
 	
     void on_loginBtn_clicked();
@@ -42,5 +43,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     int check =0;
+	int currentStt = 0;
 };
 #endif // MAINWINDOW_H

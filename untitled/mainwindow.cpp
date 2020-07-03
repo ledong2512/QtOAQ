@@ -74,13 +74,28 @@ void MainWindow::accessGameSlot(QString playerName)
 	emit MainSignal(CONNECT_TO_PLAY, challenge, strlen(challenge));
 }
 void MainWindow::logoutSuccess() {
+	currentStt = 0;
 	ui->stackedWidget->setCurrentWidget(ui->page);
 }
 void MainWindow::newChallenger(QString rival) {
+	if (currentStt != 1) return;
 	challenge *tmp;
 	tmp=new challenge(rival);
 	tmp->show();
 	QObject::connect(tmp, &challenge::acceptFight, this, &MainWindow::acceptedFightSlot);
+}
+void MainWindow::readyToPlay(QString rival, int number)
+{
+	char num_c[10];
+	_itoa_s(number, num_c, 10);
+	if (currentStt == 1) {// ready
+		currentStt++;
+		emit MainSignal(LETS_PLAY, num_c, strlen(num_c));
+
+	}
+	else {//cant play
+		emit MainSignal(CANNOT_PLAY, num_c, strlen(num_c));
+	}
 }
 void MainWindow::logout()
 {
@@ -137,6 +152,7 @@ void MainWindow::loginSuccess(QString nickName, int rank) {// call when successf
 	ui->ava->setStyleSheet("#ava{image:url(:/ava/ava"+QString::number(ava)+".jpg);}");
 	ui->notiList->clear();
 	addNoti(u8"Chào mừng bạn đến với trò chơi ô ăn quan!");
+	currentStt = 1;
 }
 void MainWindow::on_nameSortBtn_clicked()
 {

@@ -62,6 +62,13 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 		emit newChat(QString(data));
 		break;
 	}
+	case(START): {
+		data[dataLength] = 0;
+		QString data_QS = QString(data);
+		QStringList data_L = data_QS.split(" ");
+		emit challengAccepted(data_L.at(0), data_L.at(1).toInt());
+		break;
+	}
 	}
 }
 void ThreadConnector::run() {

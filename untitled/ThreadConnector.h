@@ -29,5 +29,6 @@ signals:
 	void loginError(QString message); // send login error message
 	void newChallengerSig(QString rival); //new Challenger
 	void newChat(QString mess); // new chat
+	void challengAccepted(QString rivalName,int num);
 };
 #endif
