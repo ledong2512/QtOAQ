@@ -30,5 +30,6 @@ signals:
 	void newChallengerSig(QString rival); //new Challenger
 	void newChat(QString mess); // new chat
 	void challengAccepted(QString rivalName,int num);
+	void gotoGame(QString rivalName, int num);
 };
 #endif

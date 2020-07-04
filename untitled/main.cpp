@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
     
     mainT=new MainWindow();
     con=new ServerConnector();
-    
+	
 
 	WSADATA wsaData;
 	WORD wVersion = MAKEWORD(2, 2);
@@ -123,6 +123,7 @@ int main(int argc, char *argv[])
 	QObject::connect(&connector, &ThreadConnector::newChallengerSig, mainT, &MainWindow::newChallenger);
 	QObject::connect(&connector, &ThreadConnector::newChat, mainT, &MainWindow::addNoti);
 	QObject::connect(&connector, &ThreadConnector::challengAccepted, mainT, &MainWindow::readyToPlay);
+	QObject::connect(&connector, &ThreadConnector::gotoGame, mainT, &MainWindow::playGame);
 	QObject::connect(&a, &QApplication::aboutToQuit, &connector, [=] {connector.terminate();connector.wait(5000);});//terminat the recv theard
 	
 

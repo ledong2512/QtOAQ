@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 	ui->lineEdit_6->setText("pass");
     setFixedSize(QSize(800,480));
 	ui->sendButton->setShortcut(QKeySequence(Qt::Key_Enter));
-
+	QObject::connect(&confirmUI, &Confirm::confirmSignal, this, &MainWindow::confirmSlot);
 
 
 }
@@ -74,6 +74,7 @@ void MainWindow::accessGameSlot(QString playerName)
 	emit MainSignal(CONNECT_TO_PLAY, challenge, strlen(challenge));
 }
 void MainWindow::logoutSuccess() {
+	confirmUI.close();
 	currentStt = 0;
 	ui->stackedWidget->setCurrentWidget(ui->page);
 }
@@ -90,6 +91,7 @@ void MainWindow::readyToPlay(QString rival, int number)
 	_itoa_s(number, num_c, 10);
 	if (currentStt == 1) {// ready
 		currentStt++;
+		qDebug() << "check point";
 		emit MainSignal(LETS_PLAY, num_c, strlen(num_c));
 
 	}
@@ -97,10 +99,18 @@ void MainWindow::readyToPlay(QString rival, int number)
 		emit MainSignal(CANNOT_PLAY, num_c, strlen(num_c));
 	}
 }
+void MainWindow::playGame(QString rival, int number)
+{
+	if (game != NULL) delete game;
+	game = new Game(rival,number);
+	
+	game->setParent(ui->page_2);
+	ui->stackedWidget->setCurrentWidget(ui->page_2);
+}
 void MainWindow::logout()
 {
-	char log[10];
-	emit MainSignal(LOGOUT_MESSAGE,log,0);
+	confirmUI.show();
+	
 	//ui->stackedWidget->setCurrentWidget(ui->page);
 }
 
@@ -126,6 +136,9 @@ void MainWindow::updateBoard(QString listPlayer) {
 		}	
 	}
 }
+void MainWindow::registButtonClicked() {
+	registForm.show();
+}
 void MainWindow::loginErrorSlots(QString message)
 {
 	ui->loginError->setText(message);
@@ -141,6 +154,17 @@ void MainWindow::on_loginBtn_clicked()
 	strcpy_s(loginData, (id + " " + pass).toStdString().c_str());
 	emit MainSignal(1, loginData, strlen(loginData));
 
+}
+
+void MainWindow::confirmSlot()
+{
+	if (ui->stackedWidget->currentIndex() == 1) {
+		char log[10];
+		emit MainSignal(LOGOUT_MESSAGE, log, 0);
+	}
+	if (ui->stackedWidget->currentIndex() == 2) {
+	
+	}
 }
 
 void MainWindow::loginSuccess(QString nickName, int rank) {// call when successful login,set the rank and nickName
@@ -176,6 +200,9 @@ void MainWindow::keyPressEvent(QKeyEvent *e) {
 			ui->loginBtn->click();
 		}
 	}
+}
+void MainWindow::gameMove(int cell, int direct) {
+
 }
 void MainWindow::on_rankSortBtn_clicked()
 {   if(check==0){

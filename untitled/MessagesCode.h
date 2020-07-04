@@ -19,6 +19,8 @@
 #define CANNOT_PLAY	55
 #define RANK_DIF_ERROR 71
 
+#define PLAYER_MOVE 102	
+
 #define WORNG_INFOMATION "001"
 #define ALREADY_LOGGED_IN "002"
 #define MESSAGE_NOT_YET "190"

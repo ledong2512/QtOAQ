@@ -96,6 +96,12 @@
     <ClCompile Include="ThreadConnector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Regist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Confirm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BigCell.h">
@@ -154,6 +160,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="serverconnector.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Regist.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Confirm.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -253,6 +265,12 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="ThreadConnector.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Regist.hpp">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Confirm.hpp">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -11,7 +11,7 @@
 class Game:public QGraphicsView{
     Q_OBJECT
 public:
-    Game(QWidget *parent=0);
+    Game(QString rivalName,int plyTrn,QWidget *parent=0);
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
     QGraphicsScene *scene;
@@ -19,14 +19,19 @@ public:
     void emitMove(int cell, int direc);
     void removeButton();
     void showButtonAgain();
+signals:
+	void sendToServerSig(int cell, int direc);
 public slots:
     void move(int cell, int direc);
     void resetTime(int cell, int direc);
+	void sendToServer(int cell, int direc);
     void timeCout(){
         timer--;
         timerText.setPlainText(QString::number(timer));
         if(timer==0){
-
+			timer++;
+			removeButton();
+/*
             if(turn==0){
                 for(int i=1;i<=5;i++){
                     if(cells[i]->score.getScore()!=0) {
@@ -43,7 +48,7 @@ public slots:
             }
 
             changeTurn(0,0);
-
+			*/
         }
     }
     void changeTurn(int cell, int direc){
@@ -81,11 +86,11 @@ public slots:
         for(int i=7;i<=11;i++){
             if(cells[i]->score.getScore()==0)((Cell*)cells[i])->lockModify();
         }
-        if(turn==1)for(int i=1;i<=5;i++){
-            ((Cell*)cells[i])->lockModify();
+		if (turn == 1 && playerTurn == 1)for (int i = 7;i <= 11;i++) {
+            ((Cell*)cells[i])->unlockModify();
          }
-         else for(int i=7;i<=11;i++){
-             ((Cell*)cells[i])->lockModify();
+         else if (turn == 0 && playerTurn == 0) for(int i=1;i<=5;i++){
+             ((Cell*)cells[i])->unlockModify();
          }
     };
 private:
@@ -93,6 +98,7 @@ private:
     int timer=120;
     Player play[2];
     int turn=0;
+	int playerTurn;
     int millisecondsWait=500;
 
 };

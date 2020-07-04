@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Regist</class>
+ <widget class="QWidget" name="Regist">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>247</width>
+    <height>342</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Regist</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+background:rgb(199, 199, 199)
+}
+QPushButton{
+ border:1px solid green;
+border-radius: 15px;
+background:rgb(158, 255, 106)
+}
+QPushButton:hover {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+QPushButton:pressed {
+  background-color:rgb(158, 255, 106) ;
+  
+}
+QLineEdit{
+background:white;
+border-radius: 15px;
+}</string>
+  </property>
+  <widget class="QLineEdit" name="lineId">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>70</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Email</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="linePass">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>110</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Your password</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="linePass_2">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>150</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>Confirm password</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineNickName">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>190</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>InGameName</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="registButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>290</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Đăng kí</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="errorLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>240</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+ border:1px solid green;
+border-radius: 15px;
+background:rgb(158, 255, 106)
+}
+QPushButton:hover {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+QPushButton:pressed {
+  background-color:rgb(158, 255, 106) ;
+  
+}
+QLineEdit{
+border-radius: 15px;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>20</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#2c9f1f;&quot;&gt;Tạo tài khoản&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

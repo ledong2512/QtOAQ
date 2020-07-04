@@ -496,9 +496,26 @@ background:rgb(158, 255, 106)
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>signupBtn_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>registButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>385</x>
+     <y>355</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>240</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>logout()</slot>
   <slot>sendSlots()</slot>
+  <slot>registButtonClicked()</slot>
  </slots>
 </ui>

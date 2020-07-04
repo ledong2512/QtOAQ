@@ -275,6 +275,7 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(logoutButton, SIGNAL(clicked()), MainWindow, SLOT(logout()));
         QObject::connect(sendButton, SIGNAL(clicked()), MainWindow, SLOT(sendSlots()));
+        QObject::connect(signupBtn_3, SIGNAL(clicked()), MainWindow, SLOT(registButtonClicked()));
 
         stackedWidget->setCurrentIndex(0);
 

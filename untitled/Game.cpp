@@ -1,15 +1,17 @@
-#include"Game.h"
+﻿#include"Game.h"
 #include "Cell.h"
 #include "Stone.h"
 #include"LeftButton.h"
+#include "mainwindow.h"
 #include<QDebug>
 #include<QThread>
 #include<QTimer>
 #include<QEventLoop>
-Game::Game(QWidget *parent)
+extern MainWindow *mainT;
+Game::Game(QString rivalName, int plyTrn,QWidget *parent)
 {
 
-
+ playerTurn = plyTrn;
  scene=new QGraphicsScene(parent);
  setScene(scene);
  cells[0]=new BigCell();
@@ -37,33 +39,56 @@ Game::Game(QWidget *parent)
  this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
  this->setFixedSize(800,480);
  scene->setSceneRect(0,0,800,480);
+ QGraphicsTextItem *player, *oppo;
+ player = new QGraphicsTextItem();oppo = new QGraphicsTextItem();
+ player->setPlainText(QString(u8"Bạn"));
+ player->setDefaultTextColor(Qt::black);
+ player->setFont(QFont("times", 16));
+ oppo->setPlainText(rivalName);
+ oppo->setDefaultTextColor(Qt::red);
+ oppo->setFont(QFont("times", 16));
+ scene->addItem(player);scene->addItem(oppo);
+ if (playerTurn == 0) {
+	 player->setPos(500, 60); oppo->setPos(500, 380);
+ }
+ else {
+	 oppo->setPos(500, 60); player->setPos(500, 380);
+ }
  for(int i=7;i<=11;i++){
-     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
-     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
+   //  connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
+    // connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
+	 connect(cells[i]->leftB, &LeftButton::clickOK, this, &Game::sendToServer);
+	 connect(cells[i]->rightB, &RightButton::clickOK, this, &Game::sendToServer);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::move);
     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::move);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::changeTurn);
     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::changeTurn);
  }
  for(int i=1;i<=5;i++){
-    connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
-    connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
+   // connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
+   // connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
+	 connect(cells[i]->leftB, &LeftButton::clickOK, this, &Game::sendToServer);
+	 connect(cells[i]->rightB, &RightButton::clickOK, this, &Game::sendToServer);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::move);
     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::move);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::changeTurn);
     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::changeTurn);
  }
- for(int i=7;i<=11;i++){
-     ((Cell*)cells[i])->lockModify();
+ removeButton();
+ if(playerTurn==0)
+ for(int i=1;i<=5;i++){
+     ((Cell*)cells[i])->unlockModify();
  }
  timerText.setPos(130,23);
  timerText.setDefaultTextColor(Qt::black);
  timerText.setFont(QFont("times",12));
  timerText.setPlainText(QString::number(timer));
  scene->addItem(&timerText);
+ connect(this, &Game::sendToServerSig, mainT, &MainWindow::gameMove);
  QTimer *t=new QTimer();
  connect(t,SIGNAL(timeout()),this,SLOT(timeCout()));
  t->start(1000);
+
 }
 
 void Game::keyPressEvent(QKeyEvent *event)
@@ -101,7 +126,9 @@ void Game::showButtonAgain()
 }
 
 
-
+void Game::sendToServer(int cell, int direc) {
+	emit sendToServerSig(cell, direc);
+}
 void Game::move(int cell, int direc)
 {
     cells[0]->setFocus();
@@ -132,11 +159,11 @@ void Game::move(int cell, int direc)
            if(tmp<0) tmp+=12;
            play[turn].score.setScore(cells[tmp]->score.getScore()+play[turn].score.getScore());
            cells[tmp]->score.setScore(0);// update point
-           showButtonAgain();
+           //showButtonAgain();
            return;
         }
         if(cell!=0&&cell!=6) move(cell,direc);
-        showButtonAgain();
+        //showButtonAgain();
 }
 
 void Game::resetTime(int cell, int direc)

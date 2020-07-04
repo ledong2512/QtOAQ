@@ -69,6 +69,13 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 		emit challengAccepted(data_L.at(0), data_L.at(1).toInt());
 		break;
 	}
+	case(LETS_PLAY): {
+		data[dataLength] = 0;
+		QString data_QS = QString(data);
+		QStringList data_L = data_QS.split(" ");
+		emit gotoGame(data_L.at(0), data_L.at(1).toInt());
+		break;
+	}
 	}
 }
 void ThreadConnector::run() {

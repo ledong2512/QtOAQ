@@ -201,10 +201,12 @@
   <ItemGroup>
     <ClCompile Include="BigCell.cpp" />
     <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="Confirm.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LeftButton.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerListItem.cpp" />
+    <ClCompile Include="Regist.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="Stone.cpp" />
     <ClCompile Include="challenge.cpp" />
@@ -223,10 +225,12 @@
     <QtMoc Include="LeftButton.h">
     </QtMoc>
     <ClInclude Include="ClientRequest.h" />
+    <QtMoc Include="Confirm.hpp" />
     <ClInclude Include="MessagesCode.h" />
     <ClInclude Include="Player.h" />
     <QtMoc Include="PlayerListItem.h">
     </QtMoc>
+    <QtMoc Include="Regist.hpp" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="Stone.h" />
     <QtMoc Include="challenge.h">
@@ -257,8 +261,10 @@
   <ItemGroup>
     <QtUic Include="challenge.ui">
     </QtUic>
+    <QtUic Include="Confirm.ui" />
     <QtUic Include="mainwindow.ui">
     </QtUic>
+    <QtUic Include="Regist.ui" />
     <QtUic Include="serverconnector.ui">
     </QtUic>
   </ItemGroup>
