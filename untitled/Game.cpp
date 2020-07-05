@@ -10,7 +10,7 @@
 extern MainWindow *mainT;
 Game::Game(QString rivalName, int plyTrn,QWidget *parent)
 {
-
+	
  playerTurn = plyTrn;
  scene=new QGraphicsScene(parent);
  setScene(scene);
@@ -54,9 +54,13 @@ Game::Game(QString rivalName, int plyTrn,QWidget *parent)
  else {
 	 oppo->setPos(500, 60); player->setPos(500, 380);
  }
+turnItem = new QGraphicsPixmapItem();
+ turnItem->setPixmap(QPixmap(":/test/right.png"));
+ scene->addItem(turnItem);
+ turnItem->setPos(300, 80);
  for(int i=7;i<=11;i++){
-   //  connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
-    // connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
+   //connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
+     //connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
 	 connect(cells[i]->leftB, &LeftButton::clickOK, this, &Game::sendToServer);
 	 connect(cells[i]->rightB, &RightButton::clickOK, this, &Game::sendToServer);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::move);
@@ -65,8 +69,8 @@ Game::Game(QString rivalName, int plyTrn,QWidget *parent)
     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::changeTurn);
  }
  for(int i=1;i<=5;i++){
-   // connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
-   // connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
+   //connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
+    //connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
 	 connect(cells[i]->leftB, &LeftButton::clickOK, this, &Game::sendToServer);
 	 connect(cells[i]->rightB, &RightButton::clickOK, this, &Game::sendToServer);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::move);
@@ -85,6 +89,9 @@ Game::Game(QString rivalName, int plyTrn,QWidget *parent)
  timerText.setPlainText(QString::number(timer));
  scene->addItem(&timerText);
  connect(this, &Game::sendToServerSig, mainT, &MainWindow::gameMove);
+ connect(this, &Game::quitSig, mainT, &MainWindow::quitGame);
+ connect(mainT, &MainWindow::moveGameSignal, this, &Game::move);
+ connect(mainT, &MainWindow::moveGameSignal, this, &Game::changeTurn);
  QTimer *t=new QTimer();
  connect(t,SIGNAL(timeout()),this,SLOT(timeCout()));
  t->start(1000);
@@ -93,16 +100,14 @@ Game::Game(QString rivalName, int plyTrn,QWidget *parent)
 
 void Game::keyPressEvent(QKeyEvent *event)
 {
-    if(event->key()==Qt::Key_Space){
-        millisecondsWait=20;
-    }
+	if (Qt::Key_Escape == event->key()) {
+		emit quitSig();
+	}
 }
 
 void Game::keyReleaseEvent(QKeyEvent *event)
 {
-    if(event->key()==Qt::Key_Space){
-        millisecondsWait=500;
-    }
+
 }
 
 void Game::removeButton()
@@ -165,7 +170,6 @@ void Game::move(int cell, int direc)
         if(cell!=0&&cell!=6) move(cell,direc);
         //showButtonAgain();
 }
-
 void Game::resetTime(int cell, int direc)
 {
             timer=120;

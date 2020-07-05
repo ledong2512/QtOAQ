@@ -51,7 +51,7 @@ void MainWindow::addNoti(QString noti)
 	item->setFont(QFont("Times", 12));
 	item->setTextColor(Qt::black);
 	ui->notiList->addItem(item);
-	ui->listWidget->scrollToBottom();
+	ui->notiList->scrollToBottom();
 }
 
 void MainWindow::sendSlots()
@@ -99,13 +99,28 @@ void MainWindow::readyToPlay(QString rival, int number)
 		emit MainSignal(CANNOT_PLAY, num_c, strlen(num_c));
 	}
 }
-void MainWindow::playGame(QString rival, int number)
+void MainWindow::playGame(QString rival, int number,int gameNum)
 {
+	this->numberOfGame = gameNum;
+	gameTurn = number;
 	if (game != NULL) delete game;
 	game = new Game(rival,number);
 	
 	game->setParent(ui->page_2);
 	ui->stackedWidget->setCurrentWidget(ui->page_2);
+}
+void MainWindow::moveGameSlot(int cell, int dir)
+{
+	int direct;
+	if (cell <= 5 && cell >= 1) {
+		if (dir == 1) direct = -1;
+		else direct = 1;
+	}
+	if (cell <= 11 && cell >= 7) {
+		if (dir == 0) direct = -1;
+		else direct = 1;
+	}
+	emit moveGameSignal(cell, direct);
 }
 void MainWindow::logout()
 {
@@ -163,7 +178,15 @@ void MainWindow::confirmSlot()
 		emit MainSignal(LOGOUT_MESSAGE, log, 0);
 	}
 	if (ui->stackedWidget->currentIndex() == 2) {
-	
+		char moveMes[50];
+		char tmp[10];
+		_itoa_s(numberOfGame, moveMes, 10);
+		strcat(moveMes, " ");
+		_itoa_s(gameTurn, tmp, 10);
+		strcat(moveMes, tmp);
+		emit MainSignal(SURRENDER, moveMes, strlen(moveMes));
+		//ui->stackedWidget->setCurrentWidget(ui->page_3);
+		//currentStt = 1;
 	}
 }
 
@@ -177,6 +200,11 @@ void MainWindow::loginSuccess(QString nickName, int rank) {// call when successf
 	ui->notiList->clear();
 	addNoti(u8"Chào mừng bạn đến với trò chơi ô ăn quan!");
 	currentStt = 1;
+}
+void MainWindow::recvLogSlots(QString line) {
+	logUI.show();
+	logUI.addLogLine(line);
+	confirmUI.close();
 }
 void MainWindow::on_nameSortBtn_clicked()
 {
@@ -200,9 +228,45 @@ void MainWindow::keyPressEvent(QKeyEvent *e) {
 			ui->loginBtn->click();
 		}
 	}
+	if (Qt::Key_Escape == e->key()) {
+		if (ui->stackedWidget->currentIndex() == 2) {
+			confirmUI.show();
+		}
+	}
+}
+void MainWindow::quitGame() {
+	confirmUI.show();
+}
+void MainWindow::requestLogSlot() {
+	char moveMes[50];
+	char tmp[10];
+	_itoa_s(numberOfGame, moveMes, 10);
+	strcat(moveMes, " ");
+	_itoa_s(gameTurn, tmp, 10);
+	strcat(moveMes, tmp);
+	emit MainSignal(GET_LOG, moveMes, strlen(moveMes));
 }
 void MainWindow::gameMove(int cell, int direct) {
-
+	char moveMes[50];
+	char tmp[10];
+	_itoa_s(numberOfGame, moveMes, 10);
+	strcat(moveMes, " ");
+	_itoa_s(gameTurn, tmp, 10);
+	strcat(moveMes, tmp);strcat(moveMes, " ");
+	int  dir;
+	if (cell <= 5 && cell >= 1) {
+		if (direct == -1) dir = 1;
+		else dir = 0;
+	}
+	if (cell <= 11 && cell >= 7) {
+		if (direct == -1) dir = 0;
+		else dir = 1;
+	}
+	_itoa_s(cell, tmp, 10);
+	strcat(moveMes, tmp);strcat(moveMes, " ");
+	_itoa_s(dir, tmp, 10);
+	strcat(moveMes, tmp);
+	emit MainSignal(PLAYER_MOVE, moveMes, strlen(moveMes));
 }
 void MainWindow::on_rankSortBtn_clicked()
 {   if(check==0){

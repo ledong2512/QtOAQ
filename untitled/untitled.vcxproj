@@ -204,6 +204,7 @@
     <ClCompile Include="Confirm.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LeftButton.cpp" />
+    <ClCompile Include="LogGUI.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerListItem.cpp" />
     <ClCompile Include="Regist.cpp" />
@@ -226,6 +227,7 @@
     </QtMoc>
     <ClInclude Include="ClientRequest.h" />
     <QtMoc Include="Confirm.hpp" />
+    <QtMoc Include="LogGUI.hpp" />
     <ClInclude Include="MessagesCode.h" />
     <ClInclude Include="Player.h" />
     <QtMoc Include="PlayerListItem.h">
@@ -262,6 +264,7 @@
     <QtUic Include="challenge.ui">
     </QtUic>
     <QtUic Include="Confirm.ui" />
+    <QtUic Include="LogGUI.ui" />
     <QtUic Include="mainwindow.ui">
     </QtUic>
     <QtUic Include="Regist.ui" />

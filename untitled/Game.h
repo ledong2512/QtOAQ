@@ -21,6 +21,7 @@ public:
     void showButtonAgain();
 signals:
 	void sendToServerSig(int cell, int direc);
+	void quitSig();
 public slots:
     void move(int cell, int direc);
     void resetTime(int cell, int direc);
@@ -52,12 +53,13 @@ public slots:
         }
     }
     void changeTurn(int cell, int direc){
-
+		resetTime(cell,direc);
         turn++;
         turn%=2;
         int check=1;
 
         if(turn==0){
+			turnItem->setPos(300, 80);
             for(int i=1;i<=5;i++){
                 if(cells[i]->score.getScore()!=0) {
                     check=0;break;
@@ -69,6 +71,7 @@ public slots:
             }
 
         }else{
+			turnItem->setPos(300, 400);
             for(int i=7;i<=11;i++){
                 if(cells[i]->score.getScore()!=0) {
                     check=0;break;
@@ -80,18 +83,19 @@ public slots:
             }
 
         }
+		if (turn == 1 && playerTurn == 1)for (int i = 7;i <= 11;i++) {
+			((Cell*)cells[i])->unlockModify();
+		}
+		else if (turn == 0 && playerTurn == 0) for (int i = 1;i <= 5;i++) {
+			((Cell*)cells[i])->unlockModify();
+		}
         for(int i=1;i<=5;i++){
              if(cells[i]->score.getScore()==0)((Cell*)cells[i])->lockModify();
         }
         for(int i=7;i<=11;i++){
             if(cells[i]->score.getScore()==0)((Cell*)cells[i])->lockModify();
         }
-		if (turn == 1 && playerTurn == 1)for (int i = 7;i <= 11;i++) {
-            ((Cell*)cells[i])->unlockModify();
-         }
-         else if (turn == 0 && playerTurn == 0) for(int i=1;i<=5;i++){
-             ((Cell*)cells[i])->unlockModify();
-         }
+		
     };
 private:
     QGraphicsTextItem timerText;
@@ -100,7 +104,7 @@ private:
     int turn=0;
 	int playerTurn;
     int millisecondsWait=500;
-
+	QGraphicsPixmapItem *turnItem;
 };
 
 #endif // GAME_H

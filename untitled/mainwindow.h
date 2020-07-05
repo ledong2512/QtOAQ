@@ -5,6 +5,7 @@
 #include<QString>
 #include"Regist.hpp"
 #include "Confirm.hpp"
+#include "LogGUI.hpp"
 #include"Game.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
 	Confirm confirmUI;
 	Regist registForm;
+	LogGUI logUI;
     Game *game=NULL;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -24,7 +26,11 @@ public:
 	void keyPressEvent(QKeyEvent *e);
 signals:
 	void MainSignal(int messageCode, char *data, int dataLength); //signal to main thread
+	void moveGameSignal(int cell, int direct);
 public slots:
+	void recvLogSlots(QString line);
+	void requestLogSlot();
+	void quitGame();
 	void gameMove(int cell, int direct);
 	void acceptedFightSlot(QString name, int num);
 	void addNoti(QString noti);
@@ -37,7 +43,8 @@ public slots:
 	void loginErrorSlots(QString message);
 	void newChallenger(QString rival);
 	void readyToPlay(QString rival, int number);
-	void playGame(QString rival, int number);
+	void playGame(QString rival, int number,int gameNum);
+	void moveGameSlot(int cell, int dir);
 private slots:
 	void registButtonClicked();
     void on_loginBtn_clicked();
@@ -50,5 +57,7 @@ private:
     Ui::MainWindow *ui;
     int check =0;
 	int currentStt = 0;
+	int numberOfGame;
+	int gameTurn;
 };
 #endif // MAINWINDOW_H

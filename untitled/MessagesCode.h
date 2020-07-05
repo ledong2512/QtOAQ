@@ -20,6 +20,10 @@
 #define RANK_DIF_ERROR 71
 
 #define PLAYER_MOVE 102	
+#define END_GAME 103
+#define GET_LOG 104
+#define SURRENDER 105
+#define SEND_LOG 106
 
 #define WORNG_INFOMATION "001"
 #define ALREADY_LOGGED_IN "002"

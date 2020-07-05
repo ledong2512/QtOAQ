@@ -30,6 +30,9 @@ signals:
 	void newChallengerSig(QString rival); //new Challenger
 	void newChat(QString mess); // new chat
 	void challengAccepted(QString rivalName,int num);
-	void gotoGame(QString rivalName, int num);
+	void gotoGame(QString rivalName, int num,int gameNum);
+	void moveGame(int cell, int direct);
+	void requestLog();
+	void revlog(QString logLine);
 };
 #endif

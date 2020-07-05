@@ -73,8 +73,30 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 		data[dataLength] = 0;
 		QString data_QS = QString(data);
 		QStringList data_L = data_QS.split(" ");
-		emit gotoGame(data_L.at(0), data_L.at(1).toInt());
+		emit gotoGame(data_L.at(0), data_L.at(1).toInt(), data_L.at(2).toInt());
 		break;
+	}
+	case(PLAYER_MOVE): {
+		data[dataLength] = 0;
+		QString data_QS = QString(data);
+		QStringList data_L = data_QS.split(" ");
+		emit moveGame(data_L.at(2).toInt(), data_L.at(3).toInt());
+		if(data_L.length()>4)
+		if(data_L.at(4)==QString("endgame")) emit requestLog();
+		break;
+	}
+	case (END_GAME): {
+		emit requestLog();
+		break;
+	}
+	case (SEND_LOG): {
+		data[dataLength] = 0;
+		QString data_QS = QString(data);
+		QStringList data_L = data_QS.split("+");
+		for (const auto& i : data_L)
+		{
+			emit revlog(i);
+		}
 	}
 	}
 }

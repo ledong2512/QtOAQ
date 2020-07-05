@@ -124,6 +124,9 @@ int main(int argc, char *argv[])
 	QObject::connect(&connector, &ThreadConnector::newChat, mainT, &MainWindow::addNoti);
 	QObject::connect(&connector, &ThreadConnector::challengAccepted, mainT, &MainWindow::readyToPlay);
 	QObject::connect(&connector, &ThreadConnector::gotoGame, mainT, &MainWindow::playGame);
+	QObject::connect(&connector, &ThreadConnector::moveGame, mainT, &MainWindow::moveGameSlot);
+	QObject::connect(&connector, &ThreadConnector::requestLog, mainT, &MainWindow::requestLogSlot);
+	QObject::connect(&connector, &ThreadConnector::revlog, mainT, &MainWindow::recvLogSlots);
 	QObject::connect(&a, &QApplication::aboutToQuit, &connector, [=] {connector.terminate();connector.wait(5000);});//terminat the recv theard
 	
 
