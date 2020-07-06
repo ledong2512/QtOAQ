@@ -19,7 +19,19 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 			emit newChat(QString(u8"Đối thủ rank quá cao (hoặc thấp)!!!"));
 		}
 		else if (strcmp(data, RIVAL_OFFLINE) == 0) {
-			emit newChat(QString(u8"Đối thủ ngắt kết nối!!!"));
+			emit newChat(QString(u8"Đối thủ không khả dụng!!!"));
+		}
+		else if (strcmp(data, START_ERROR) == 0) {
+			emit newChat(QString(u8"Ván đấu đã bị hủy bỏ!!!"));
+		}
+		else if (strcmp(data, ID_DUP) == 0) {
+			emit regist(QString(u8"Tài khoản trùng!!!"));
+		}
+		else if (strcmp(data, NICKNAME_DUP) == 0) {
+			emit regist(QString(u8"Nickname trùng!!!"));
+		}
+		else if (strcmp(data, SQL_ERR) == 0) {
+			emit regist(QString(u8"Server lỗi!!!"));
 		}
 		break;
 	}
@@ -93,10 +105,38 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 		data[dataLength] = 0;
 		QString data_QS = QString(data);
 		QStringList data_L = data_QS.split("+");
-		for (const auto& i : data_L)
+		for (int i=0;i<data_L.length();i++)
 		{
-			emit revlog(i);
+			emit revlog(data_L.at(i));
 		}
+		break;
+	}
+	case (SEND_IP): {
+		data[dataLength] = 0;
+		QString data_QS = QString(data);
+		emit recvIP(data_QS);
+		break;
+	}
+	case (REGIST_SUCCESS): {
+		emit regist(QString(u8"Thành Công!"));
+		break;
+	}
+	case (RETURN): {
+		int i = 0, rank;
+		char nickName[50], charRank[50];
+		for (i = 0;data[i] != ' '; i++) {
+			nickName[i] = data[i];
+		}
+		nickName[i] = 0;
+		qDebug() << nickName;
+		++i;
+		for (int j = i;j < dataLength;j++) {
+			charRank[j - i] = data[j];
+		}
+		charRank[dataLength] = 0;
+		rank = atoi(charRank);
+		emit loginSuccess(QString(nickName), rank);// emit signals
+		break;
 	}
 	}
 }

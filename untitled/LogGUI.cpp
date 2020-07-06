@@ -16,3 +16,8 @@ void LogGUI::addLogLine(QString line)
 	ui.listWidget->addItem(item);
 	ui.listWidget->scrollToBottom();
 }
+
+void LogGUI::clearBoard()
+{
+	ui.listWidget->clear();
+}

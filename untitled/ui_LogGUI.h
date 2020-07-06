@@ -36,6 +36,7 @@ public:
         listWidget->setGeometry(QRect(-5, 1, 341, 331));
 
         retranslateUi(LogGUI);
+        QObject::connect(okButton, SIGNAL(clicked()), LogGUI, SLOT(buttonClicked()));
 
         QMetaObject::connectSlotsByName(LogGUI);
     } // setupUi

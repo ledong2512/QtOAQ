@@ -34,5 +34,7 @@ signals:
 	void moveGame(int cell, int direct);
 	void requestLog();
 	void revlog(QString logLine);
+	void recvIP(QString logLine);
+	void regist(QString mess);
 };
 #endif

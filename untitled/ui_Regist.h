@@ -61,9 +61,11 @@ public:
         linePass = new QLineEdit(Regist);
         linePass->setObjectName(QString::fromUtf8("linePass"));
         linePass->setGeometry(QRect(50, 110, 151, 31));
+        linePass->setEchoMode(QLineEdit::Password);
         linePass_2 = new QLineEdit(Regist);
         linePass_2->setObjectName(QString::fromUtf8("linePass_2"));
         linePass_2->setGeometry(QRect(50, 150, 151, 31));
+        linePass_2->setEchoMode(QLineEdit::Password);
         lineNickName = new QLineEdit(Regist);
         lineNickName->setObjectName(QString::fromUtf8("lineNickName"));
         lineNickName->setGeometry(QRect(50, 190, 151, 31));
@@ -95,6 +97,7 @@ public:
         label->setGeometry(QRect(50, 20, 151, 31));
 
         retranslateUi(Regist);
+        QObject::connect(registButton, SIGNAL(clicked()), Regist, SLOT(registS()));
 
         QMetaObject::connectSlotsByName(Regist);
     } // setupUi

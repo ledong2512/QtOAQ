@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ThreadConnector_t {
-    QByteArrayData data[30];
-    char stringdata0[277];
+    QByteArrayData data[32];
+    char stringdata0[291];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -61,7 +61,9 @@ QT_MOC_LITERAL(25, 239, 4), // "cell"
 QT_MOC_LITERAL(26, 244, 6), // "direct"
 QT_MOC_LITERAL(27, 251, 10), // "requestLog"
 QT_MOC_LITERAL(28, 262, 6), // "revlog"
-QT_MOC_LITERAL(29, 269, 7) // "logLine"
+QT_MOC_LITERAL(29, 269, 7), // "logLine"
+QT_MOC_LITERAL(30, 277, 6), // "recvIP"
+QT_MOC_LITERAL(31, 284, 6) // "regist"
 
     },
     "ThreadConnector\0loginSuccess\0\0nickName\0"
@@ -71,7 +73,7 @@ QT_MOC_LITERAL(29, 269, 7) // "logLine"
     "newChallengerSig\0rival\0newChat\0mess\0"
     "challengAccepted\0rivalName\0num\0gotoGame\0"
     "gameNum\0moveGame\0cell\0direct\0requestLog\0"
-    "revlog\0logLine"
+    "revlog\0logLine\0recvIP\0regist"
 };
 #undef QT_MOC_LITERAL
 
@@ -81,26 +83,28 @@ static const uint qt_meta_data_ThreadConnector[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      12,       // signalCount
+      14,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   74,    2, 0x06 /* Public */,
-       5,    3,   79,    2, 0x06 /* Public */,
-      10,    0,   86,    2, 0x06 /* Public */,
-      11,    1,   87,    2, 0x06 /* Public */,
-      13,    1,   90,    2, 0x06 /* Public */,
-      15,    1,   93,    2, 0x06 /* Public */,
-      17,    1,   96,    2, 0x06 /* Public */,
-      19,    2,   99,    2, 0x06 /* Public */,
-      22,    3,  104,    2, 0x06 /* Public */,
-      24,    2,  111,    2, 0x06 /* Public */,
-      27,    0,  116,    2, 0x06 /* Public */,
-      28,    1,  117,    2, 0x06 /* Public */,
+       1,    2,   84,    2, 0x06 /* Public */,
+       5,    3,   89,    2, 0x06 /* Public */,
+      10,    0,   96,    2, 0x06 /* Public */,
+      11,    1,   97,    2, 0x06 /* Public */,
+      13,    1,  100,    2, 0x06 /* Public */,
+      15,    1,  103,    2, 0x06 /* Public */,
+      17,    1,  106,    2, 0x06 /* Public */,
+      19,    2,  109,    2, 0x06 /* Public */,
+      22,    3,  114,    2, 0x06 /* Public */,
+      24,    2,  121,    2, 0x06 /* Public */,
+      27,    0,  126,    2, 0x06 /* Public */,
+      28,    1,  127,    2, 0x06 /* Public */,
+      30,    1,  130,    2, 0x06 /* Public */,
+      31,    1,  133,    2, 0x06 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::Int,    3,    4,
@@ -115,6 +119,8 @@ static const uint qt_meta_data_ThreadConnector[] = {
     QMetaType::Void, QMetaType::Int, QMetaType::Int,   25,   26,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   29,
+    QMetaType::Void, QMetaType::QString,   29,
+    QMetaType::Void, QMetaType::QString,   18,
 
        0        // eod
 };
@@ -137,6 +143,8 @@ void ThreadConnector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 9: _t->moveGame((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 10: _t->requestLog(); break;
         case 11: _t->revlog((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 12: _t->recvIP((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 13: _t->regist((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -225,6 +233,20 @@ void ThreadConnector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
                 return;
             }
         }
+        {
+            using _t = void (ThreadConnector::*)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ThreadConnector::recvIP)) {
+                *result = 12;
+                return;
+            }
+        }
+        {
+            using _t = void (ThreadConnector::*)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ThreadConnector::regist)) {
+                *result = 13;
+                return;
+            }
+        }
     }
 }
 
@@ -257,13 +279,13 @@ int ThreadConnector::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 14)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 12;
+        _id -= 14;
     }
     return _id;
 }
@@ -348,6 +370,20 @@ void ThreadConnector::revlog(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 11, _a);
+}
+
+// SIGNAL 12
+void ThreadConnector::recvIP(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 12, _a);
+}
+
+// SIGNAL 13
+void ThreadConnector::regist(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 13, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

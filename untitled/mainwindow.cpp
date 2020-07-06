@@ -14,12 +14,14 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+	ui->lineEdit_5->setValidator(new QRegExpValidator(QRegExp("^[!-~]*$"), this));
+	ui->lineEdit_6->setValidator(new QRegExpValidator(QRegExp("^[!-~]*$"), this));
 	ui->lineEdit_5->setText("ledong@gmail.com");
 	ui->lineEdit_6->setText("pass");
     setFixedSize(QSize(800,480));
 	ui->sendButton->setShortcut(QKeySequence(Qt::Key_Enter));
 	QObject::connect(&confirmUI, &Confirm::confirmSignal, this, &MainWindow::confirmSlot);
-
+	QObject::connect(&logUI, &LogGUI::returnToMain, this, &MainWindow::returnSig);
 
 }
 
@@ -63,7 +65,11 @@ void MainWindow::sendSlots()
 	emit MainSignal(CHAT, textS, strlen(textS));
 	ui->chatLine->clear();
 }
+void MainWindow::returnSig() {
+	char log[10];
+	emit MainSignal(RETURN, log, 0);
 
+}
 void MainWindow::accessGameSlot(QString playerName)
 {   //game=new Game();
     //game->setParent(ui->page_2);
@@ -167,10 +173,16 @@ void MainWindow::on_loginBtn_clicked()
 	QString pass = ui->lineEdit_6->text();
 	char loginData[MAX_LENGTH];
 	strcpy_s(loginData, (id + " " + pass).toStdString().c_str());
+	if (id.length()==0||pass.length()==0) {
+		ui->loginError->setText(QString(u8"Vui lòng điền đủ thông tin"));
+		ui->loginError->setStyleSheet("#loginError{color:red}");
+	}else
 	emit MainSignal(1, loginData, strlen(loginData));
 
 }
-
+void MainWindow::registHandle(QString mess) {
+	registForm.errMes(mess);
+}
 void MainWindow::confirmSlot()
 {
 	if (ui->stackedWidget->currentIndex() == 1) {
@@ -178,6 +190,10 @@ void MainWindow::confirmSlot()
 		emit MainSignal(LOGOUT_MESSAGE, log, 0);
 	}
 	if (ui->stackedWidget->currentIndex() == 2) {
+		if (logRecv == 1) {
+			char log[10];
+			emit MainSignal(RETURN, log, 0);
+		}else{
 		char moveMes[50];
 		char tmp[10];
 		_itoa_s(numberOfGame, moveMes, 10);
@@ -187,6 +203,7 @@ void MainWindow::confirmSlot()
 		emit MainSignal(SURRENDER, moveMes, strlen(moveMes));
 		//ui->stackedWidget->setCurrentWidget(ui->page_3);
 		//currentStt = 1;
+		}
 	}
 }
 
@@ -196,15 +213,23 @@ void MainWindow::loginSuccess(QString nickName, int rank) {// call when successf
 	ui->label_rank->setText(QString::number(rank));
 	int ava = rank/100;
 	if (ava > 6) ava = 6;
-	ui->ava->setStyleSheet("#ava{image:url(:/ava/ava"+QString::number(ava)+".jpg);}");
+	ui->ava->setStyleSheet("#ava{image:url(:/ava/ava"+QString::number(ava+1)+".jpg);}");
 	ui->notiList->clear();
 	addNoti(u8"Chào mừng bạn đến với trò chơi ô ăn quan!");
 	currentStt = 1;
+	if (logRecv == 1) logRecv = 0;
+	logUI.close();
+	confirmUI.close();
 }
 void MainWindow::recvLogSlots(QString line) {
+	if(logRecv==0)logUI.clearBoard();
 	logUI.show();
 	logUI.addLogLine(line);
 	confirmUI.close();
+	logRecv = 1;
+}
+void MainWindow::recvIPSlots(QString line) {
+	logUI.addLogLine(line);
 }
 void MainWindow::on_nameSortBtn_clicked()
 {
@@ -245,6 +270,7 @@ void MainWindow::requestLogSlot() {
 	_itoa_s(gameTurn, tmp, 10);
 	strcat(moveMes, tmp);
 	emit MainSignal(GET_LOG, moveMes, strlen(moveMes));
+	emit MainSignal(GET_IP, moveMes, strlen(moveMes));
 }
 void MainWindow::gameMove(int cell, int direct) {
 	char moveMes[50];

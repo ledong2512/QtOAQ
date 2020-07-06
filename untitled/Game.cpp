@@ -158,15 +158,25 @@ void Game::move(int cell, int direc)
                  t.start(millisecondsWait);
                  loop.exec();
         }
-        if(cells[cell]->score.getScore()==0) {
-           int tmp=cell+direc;
-           tmp%=12;
-           if(tmp<0) tmp+=12;
-           play[turn].score.setScore(cells[tmp]->score.getScore()+play[turn].score.getScore());
-           cells[tmp]->score.setScore(0);// update point
+		if (cells[cell]->score.getScore() == 0){
+			int tmp = cell + direc;
+			tmp %= 12;
+			if (tmp < 0) tmp += 12;
+		while (cells[cell]->score.getScore() == 0&& cells[tmp]->score.getScore() != 0) {
+			
+			play[turn].score.setScore(cells[tmp]->score.getScore() + play[turn].score.getScore());
+			cells[tmp]->score.setScore(0);// update point
+			cell = tmp;
+			cell += direc;
+			cell %= 12;if (cell < 0) cell += 12;
+			tmp = cell + direc;
+			tmp %= 12;
+			if (tmp < 0) tmp += 12;
+		}
            //showButtonAgain();
            return;
         }
+		if (cells[cell]->score.getScore() != 0)
         if(cell!=0&&cell!=6) move(cell,direc);
         //showButtonAgain();
 }

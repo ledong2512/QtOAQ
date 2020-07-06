@@ -27,7 +27,11 @@ public:
 signals:
 	void MainSignal(int messageCode, char *data, int dataLength); //signal to main thread
 	void moveGameSignal(int cell, int direct);
+	//void returnSigg();
+	void returnSig();
 public slots:
+	void registHandle(QString mess);
+	void recvIPSlots(QString line);
 	void recvLogSlots(QString line);
 	void requestLogSlot();
 	void quitGame();
@@ -59,5 +63,6 @@ private:
 	int currentStt = 0;
 	int numberOfGame;
 	int gameTurn;
+	int logRecv = 0;
 };
 #endif // MAINWINDOW_H
