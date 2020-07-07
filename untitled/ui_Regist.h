@@ -105,7 +105,7 @@ public:
     void retranslateUi(QWidget *Regist)
     {
         Regist->setWindowTitle(QCoreApplication::translate("Regist", "Regist", nullptr));
-        lineId->setPlaceholderText(QCoreApplication::translate("Regist", "Email", nullptr));
+        lineId->setPlaceholderText(QCoreApplication::translate("Regist", "Username", nullptr));
         linePass->setPlaceholderText(QCoreApplication::translate("Regist", "Your password", nullptr));
         linePass_2->setPlaceholderText(QCoreApplication::translate("Regist", "Confirm password", nullptr));
         lineNickName->setPlaceholderText(QCoreApplication::translate("Regist", "InGameName", nullptr));

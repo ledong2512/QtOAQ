@@ -46,7 +46,7 @@ border-radius: 15px;
     </rect>
    </property>
    <property name="placeholderText">
-    <string>Email</string>
+    <string>Username</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="linePass">

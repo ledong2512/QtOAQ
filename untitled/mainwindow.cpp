@@ -16,8 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 	ui->lineEdit_5->setValidator(new QRegExpValidator(QRegExp("^[!-~]*$"), this));
 	ui->lineEdit_6->setValidator(new QRegExpValidator(QRegExp("^[!-~]*$"), this));
-	ui->lineEdit_5->setText("ledong@gmail.com");
-	ui->lineEdit_6->setText("pass");
     setFixedSize(QSize(800,480));
 	ui->sendButton->setShortcut(QKeySequence(Qt::Key_Enter));
 	QObject::connect(&confirmUI, &Confirm::confirmSignal, this, &MainWindow::confirmSlot);
