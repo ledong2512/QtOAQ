@@ -49,6 +49,10 @@ void MainWindow::addPlayerToBoard(QString playerName, int rank)// playerName: na
 
 void MainWindow::addNoti(QString noti)
 {
+	if (noti == QString(u8"Đối thủ không khả dụng!!!")) {
+		if (ui->stackedWidget->currentIndex() == 1)
+			currentStt = 1;
+	}
 	QListWidgetItem* item = new QListWidgetItem("  "+noti);
 	item->setFont(QFont("Times", 12));
 	item->setTextColor(Qt::black);

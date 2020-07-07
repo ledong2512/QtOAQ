@@ -1,14 +1,6 @@
-﻿  mainwindow.cpp
-mainwindow.cpp(65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(80): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(101): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(105): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(140): warning C4101: 'rank': unreferenced local variable
-mainwindow.cpp(180): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(203): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(245): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(272): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(273): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-mainwindow.cpp(295): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+﻿  ThreadConnector.cpp
+c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'dataLength': unreferenced formal parameter
+c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'data': unreferenced formal parameter
+ThreadConnector.cpp(147): warning C4101: 'message': unreferenced local variable
   untitled.vcxproj -> C:\Users\123\Desktop\QtOAQ\untitled\debug\untitled.exe
   untitled.vcxproj -> debug\untitled.pdb (Full PDB)

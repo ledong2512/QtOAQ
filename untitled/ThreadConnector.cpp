@@ -36,6 +36,7 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 		break;
 	}
 	case(LOGIN_SUCCESS): {
+		data[dataLength] = 0;
 		int i = 0, rank;
 		char nickName[50], charRank[50];
 		for (i = 0;data[i] != ' '; i++) {
