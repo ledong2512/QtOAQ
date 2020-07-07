@@ -53,6 +53,10 @@ void MainWindow::addNoti(QString noti)
 		if (ui->stackedWidget->currentIndex() == 1)
 			currentStt = 1;
 	}
+	if (noti == QString(u8"Ván đấu đã bị hủy bỏ!!!")) {
+		if (ui->stackedWidget->currentIndex() == 1)
+			currentStt = 1;
+	}
 	QListWidgetItem* item = new QListWidgetItem("  "+noti);
 	item->setFont(QFont("Times", 12));
 	item->setTextColor(Qt::black);
@@ -75,9 +79,7 @@ void MainWindow::returnSig() {
 
 }
 void MainWindow::accessGameSlot(QString playerName)
-{   //game=new Game();
-    //game->setParent(ui->page_2);
-    //ui->stackedWidget->setCurrentWidget(ui->page_2);
+{   
 	char challenge[MAX_LENGTH];
 	strcpy_s(challenge, (playerName + " " + ui->label_name->text()).toStdString().c_str());
 	qDebug() << challenge<<strlen(challenge);
@@ -135,8 +137,6 @@ void MainWindow::moveGameSlot(int cell, int dir)
 void MainWindow::logout()
 {
 	confirmUI.show();
-	
-	//ui->stackedWidget->setCurrentWidget(ui->page);
 }
 
 void MainWindow::updateBoard(QString listPlayer) {
@@ -171,8 +171,6 @@ void MainWindow::loginErrorSlots(QString message)
 }
 void MainWindow::on_loginBtn_clicked()
 {
-  //ui->stackedWidget->setCurrentWidget(ui->page_3);
-    //for(int i=0;i<100;i++) addPlayerToBoard(QString("test_user_")+QString::number(i),i);
 	QString id = ui->lineEdit_5->text();
 	QString pass = ui->lineEdit_6->text();
 	char loginData[MAX_LENGTH];
@@ -205,8 +203,6 @@ void MainWindow::confirmSlot()
 		_itoa_s(gameTurn, tmp, 10);
 		strcat(moveMes, tmp);
 		emit MainSignal(SURRENDER, moveMes, strlen(moveMes));
-		//ui->stackedWidget->setCurrentWidget(ui->page_3);
-		//currentStt = 1;
 		}
 	}
 }
@@ -220,10 +216,13 @@ void MainWindow::loginSuccess(QString nickName, int rank) {// call when successf
 	ui->ava->setStyleSheet("#ava{image:url(:/ava/ava"+QString::number(ava+1)+".jpg);}");
 	ui->notiList->clear();
 	addNoti(u8"Chào mừng bạn đến với trò chơi ô ăn quan!");
+	char log[10];
+	emit MainSignal(GET_LIST_PLAYER, log, 0);
 	currentStt = 1;
 	if (logRecv == 1) logRecv = 0;
 	logUI.close();
 	confirmUI.close();
+	registForm.close();
 }
 void MainWindow::recvLogSlots(QString line) {
 	if(logRecv==0)logUI.clearBoard();
@@ -273,6 +272,7 @@ void MainWindow::requestLogSlot() {
 	strcat(moveMes, " ");
 	_itoa_s(gameTurn, tmp, 10);
 	strcat(moveMes, tmp);
+	emit endGame();
 	emit MainSignal(GET_LOG, moveMes, strlen(moveMes));
 	emit MainSignal(GET_IP, moveMes, strlen(moveMes));
 }

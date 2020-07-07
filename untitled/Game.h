@@ -8,51 +8,36 @@
 #include"Player.h"
 #include"Cell.h"
 
-class Game:public QGraphicsView{
+class Game:public QGraphicsView{ // the main game class
     Q_OBJECT
 public:
-    Game(QString rivalName,int plyTrn,QWidget *parent=0);
-    void keyPressEvent(QKeyEvent *event);
-    void keyReleaseEvent(QKeyEvent *event);
+    Game(QString rivalName,int plyTrn,QWidget *parent=0); // rivalName is the name of your rival, plyTurn is your turn (0/1)
+	//0 go first
+    void keyPressEvent(QKeyEvent *event);//key board event
+    void keyReleaseEvent(QKeyEvent *event);//key board event
     QGraphicsScene *scene;
     BigCell *cells[12];
-    void emitMove(int cell, int direc);
-    void removeButton();
-    void showButtonAgain();
+    void emitMove(int cell, int direc);// move include what cell you move and it direction
+    void removeButton();// you cant do anything, just watch if this fuction call
+    void showButtonAgain();// you can now do the move
 signals:
-	void sendToServerSig(int cell, int direc);
-	void quitSig();
+	void sendToServerSig(int cell, int direc); //sendmove to server signal include what cell you move and it direction
+	void quitSig();// quit the game
 public slots:
-    void move(int cell, int direc);
-    void resetTime(int cell, int direc);
-	void sendToServer(int cell, int direc);
-    void timeCout(){
+	void endGameTime();
+    void move(int cell, int direc);// move include what cell you move and it direction
+    void resetTime(int cell, int direc);//reset the timer 
+	void sendToServer(int cell, int direc);//sendmove to server signal include what cell you move and it direction
+    void timeCout(){ // the timer
         timer--;
         timerText.setPlainText(QString::number(timer));
         if(timer==0){
 			timer++;
 			removeButton();
-/*
-            if(turn==0){
-                for(int i=1;i<=5;i++){
-                    if(cells[i]->score.getScore()!=0) {
-                       cells[i]->leftB->clickOK(i,1);break;
-                    }
-                }
-            }
-            else{
-                        for(int i=7;i<=11;i++){
-                            if(cells[i]->score.getScore()!=0) {
-                               cells[i]->leftB->clickOK(i,1);break;
-                            }
-                        }
-            }
 
-            changeTurn(0,0);
-			*/
         }
     }
-    void changeTurn(int cell, int direc){
+    void changeTurn(int cell, int direc){ //change turn after make amove
 		resetTime(cell,direc);
         turn++;
         turn%=2;

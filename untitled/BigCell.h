@@ -4,11 +4,11 @@
 #include<QMoveEvent>
 #include"Score.h"
 #include"LeftButton.h"
-class BigCell:public QGraphicsRectItem{
+class BigCell:public QGraphicsRectItem{// this class called "Quan" in the game and is father class of Cell
 public:
     BigCell();
-    LeftButton * leftB=NULL; RightButton *rightB=NULL;
-    Score score;
+    LeftButton * leftB=NULL; RightButton *rightB=NULL;// this save for children class
+    Score score;// point 
     void updateCell();
     void setIndex(int x){
         index=x;
@@ -20,7 +20,7 @@ public:
         return index;
     }
 protected:
-    int index;
+    int index;// position
 };
 
 #endif // BIGCELL_H

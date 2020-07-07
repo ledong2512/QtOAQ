@@ -75,7 +75,6 @@ void TRY() {// connect to server
 		splash->show();
 		QTimer::singleShot(600, splash, SLOT(close()));
 		QTimer::singleShot(600, mainT, SLOT(show()));
-		//_beginthreadex(0, 0, recvThread, (void*)client, 0, 0);
 		connector.start();
 	}
 	else con->errorMes();

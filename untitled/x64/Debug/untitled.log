@@ -1,6 +1,3 @@
-﻿  ThreadConnector.cpp
-c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'dataLength': unreferenced formal parameter
-c:\users\123\desktop\qtoaq\untitled\ClientRequest.h(68): warning C4100: 'data': unreferenced formal parameter
-ThreadConnector.cpp(147): warning C4101: 'message': unreferenced local variable
+﻿  serverconnector.cpp
   untitled.vcxproj -> C:\Users\123\Desktop\QtOAQ\untitled\debug\untitled.exe
   untitled.vcxproj -> debug\untitled.pdb (Full PDB)

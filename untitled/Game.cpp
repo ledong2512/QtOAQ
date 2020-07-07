@@ -59,8 +59,6 @@ turnItem = new QGraphicsPixmapItem();
  scene->addItem(turnItem);
  turnItem->setPos(300, 80);
  for(int i=7;i<=11;i++){
-   //connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
-     //connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
 	 connect(cells[i]->leftB, &LeftButton::clickOK, this, &Game::sendToServer);
 	 connect(cells[i]->rightB, &RightButton::clickOK, this, &Game::sendToServer);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::move);
@@ -69,8 +67,6 @@ turnItem = new QGraphicsPixmapItem();
     connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::changeTurn);
  }
  for(int i=1;i<=5;i++){
-   //connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::resetTime);
-    //connect(cells[i]->rightB,&RightButton::clickOK,this,&Game::resetTime);
 	 connect(cells[i]->leftB, &LeftButton::clickOK, this, &Game::sendToServer);
 	 connect(cells[i]->rightB, &RightButton::clickOK, this, &Game::sendToServer);
     connect(cells[i]->leftB,&LeftButton::clickOK,this,&Game::move);
@@ -92,6 +88,7 @@ turnItem = new QGraphicsPixmapItem();
  connect(this, &Game::quitSig, mainT, &MainWindow::quitGame);
  connect(mainT, &MainWindow::moveGameSignal, this, &Game::move);
  connect(mainT, &MainWindow::moveGameSignal, this, &Game::changeTurn);
+ connect(mainT, &MainWindow::endGame, this, &Game::endGameTime);
  QTimer *t=new QTimer();
  connect(t,SIGNAL(timeout()),this,SLOT(timeCout()));
  t->start(1000);
@@ -183,4 +180,7 @@ void Game::move(int cell, int direc)
 void Game::resetTime(int cell, int direc)
 {
             timer=120;
+}
+void Game::endGameTime() {
+	removeButton();
 }

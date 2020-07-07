@@ -5,7 +5,7 @@
 #include<QString>
 
 
-namespace Ui {
+namespace Ui { // this is the connertor to server
 class ServerConnector;
 }
 
@@ -16,8 +16,8 @@ class ServerConnector : public QMainWindow
 public:
     explicit ServerConnector(QWidget *parent = nullptr);
     ~ServerConnector();
-	QString getIP();
-	QString getPort();
+	QString getIP();// use to get the input ip
+	QString getPort();// use to get the input port
 	void errorMes();
 	void ConvertHostnameToIP(char *hostname, char *ip);
 	public slots:

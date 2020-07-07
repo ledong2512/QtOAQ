@@ -3,7 +3,7 @@
 #include <QGraphicsPixmapItem>
 #include<QMoveEvent>
 #include<QObject>
-class LeftButton:public QObject,public QGraphicsPixmapItem{
+class LeftButton:public QObject,public QGraphicsPixmapItem{ //left button of the cell
     Q_OBJECT
 public:
     LeftButton();
@@ -21,7 +21,7 @@ signals:
 
 
 };
-class RightButton:public QObject,public QGraphicsPixmapItem{
+class RightButton:public QObject,public QGraphicsPixmapItem{//right button of the cell
     Q_OBJECT
 public:
     RightButton();

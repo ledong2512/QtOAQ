@@ -7,18 +7,18 @@ namespace Ui {
 class challenge;
 }
 
-class challenge : public QDialog
+class challenge : public QDialog //this show when someone challenge you to a battle
 {
     Q_OBJECT
 
 public:
-    explicit challenge(  QString rival, QWidget *parent = nullptr);
+    explicit challenge(  QString rival, QWidget *parent = nullptr); //rival is the rival Name
     ~challenge();
 signals:
-	void acceptFight(QString name, int number);
+	void acceptFight(QString name, int number); // you accept the fight, number is the secret number server send to you
 public slots:
-    void coutDown();
-	void emitAcceptFight();
+    void coutDown();// you have only 5 second to make your decision
+	void emitAcceptFight();//accept the fight
 private:
 	int secretNumber;
     int time=5;

@@ -1,6 +1,6 @@
 ﻿#include "ThreadConnector.h"
 void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength) { // the Response Message form service
-																   //messageCode: the code of message, data:the message data, dataLength: length of message data
+ //messageCode: the code of message, data:the message data, dataLength: length of message data
 	switch (messageCode) {
 	case(ERROR_MESSAGE): {
 		data[dataLength] = 0;
@@ -52,7 +52,7 @@ void ThreadConnector::handleResponse(int messageCode, char *data, int dataLength
 		rank = atoi(charRank);
 		emit loginSuccess(QString(nickName), rank);// emit signals
 		char log[10];
-		crafMessageAndSend(GET_LIST_PLAYER, log, 0);// send get list player
+		
 		break;
 	}
 	case(LOGOUT_SUCCESS): {

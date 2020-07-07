@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Game_t {
-    QByteArrayData data[11];
-    char stringdata0[89];
+    QByteArrayData data[12];
+    char stringdata0[101];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,16 +38,17 @@ QT_MOC_LITERAL(2, 21, 0), // ""
 QT_MOC_LITERAL(3, 22, 4), // "cell"
 QT_MOC_LITERAL(4, 27, 5), // "direc"
 QT_MOC_LITERAL(5, 33, 7), // "quitSig"
-QT_MOC_LITERAL(6, 41, 4), // "move"
-QT_MOC_LITERAL(7, 46, 9), // "resetTime"
-QT_MOC_LITERAL(8, 56, 12), // "sendToServer"
-QT_MOC_LITERAL(9, 69, 8), // "timeCout"
-QT_MOC_LITERAL(10, 78, 10) // "changeTurn"
+QT_MOC_LITERAL(6, 41, 11), // "endGameTime"
+QT_MOC_LITERAL(7, 53, 4), // "move"
+QT_MOC_LITERAL(8, 58, 9), // "resetTime"
+QT_MOC_LITERAL(9, 68, 12), // "sendToServer"
+QT_MOC_LITERAL(10, 81, 8), // "timeCout"
+QT_MOC_LITERAL(11, 90, 10) // "changeTurn"
 
     },
     "Game\0sendToServerSig\0\0cell\0direc\0"
-    "quitSig\0move\0resetTime\0sendToServer\0"
-    "timeCout\0changeTurn"
+    "quitSig\0endGameTime\0move\0resetTime\0"
+    "sendToServer\0timeCout\0changeTurn"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,7 +58,7 @@ static const uint qt_meta_data_Game[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -65,21 +66,23 @@ static const uint qt_meta_data_Game[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   49,    2, 0x06 /* Public */,
-       5,    0,   54,    2, 0x06 /* Public */,
+       1,    2,   54,    2, 0x06 /* Public */,
+       5,    0,   59,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    2,   55,    2, 0x0a /* Public */,
-       7,    2,   60,    2, 0x0a /* Public */,
-       8,    2,   65,    2, 0x0a /* Public */,
-       9,    0,   70,    2, 0x0a /* Public */,
-      10,    2,   71,    2, 0x0a /* Public */,
+       6,    0,   60,    2, 0x0a /* Public */,
+       7,    2,   61,    2, 0x0a /* Public */,
+       8,    2,   66,    2, 0x0a /* Public */,
+       9,    2,   71,    2, 0x0a /* Public */,
+      10,    0,   76,    2, 0x0a /* Public */,
+      11,    2,   77,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,    4,
     QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,    4,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,    4,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,    4,
@@ -97,11 +100,12 @@ void Game::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         switch (_id) {
         case 0: _t->sendToServerSig((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 1: _t->quitSig(); break;
-        case 2: _t->move((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 3: _t->resetTime((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 4: _t->sendToServer((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 5: _t->timeCout(); break;
-        case 6: _t->changeTurn((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 2: _t->endGameTime(); break;
+        case 3: _t->move((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 4: _t->resetTime((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 5: _t->sendToServer((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 6: _t->timeCout(); break;
+        case 7: _t->changeTurn((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -152,13 +156,13 @@ int Game::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }

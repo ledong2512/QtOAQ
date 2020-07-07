@@ -5,7 +5,7 @@
 #include<QLabel>
 #include"mainwindow.h"
 
-class PlayerListItem:public QWidget{
+class PlayerListItem:public QWidget{ // this is the active player board
     Q_OBJECT
 public:
     PlayerListItem();
