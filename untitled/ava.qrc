@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/ok">
-        <file>ava1.jpg</file>
-    </qresource>
-    <qresource prefix="/.okád"/>
-</RCC>
